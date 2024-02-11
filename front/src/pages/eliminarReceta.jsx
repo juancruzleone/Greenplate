@@ -31,7 +31,7 @@ const EliminarReceta = () => {
       });
 
       if (response.ok) {
-        navigate('/panel/recetas'); // Redirige a la página de listado después de eliminar
+        navigate('/panel'); // Redirige a la página de listado después de eliminar
       } else {
         console.error('Error al eliminar la receta');
       }

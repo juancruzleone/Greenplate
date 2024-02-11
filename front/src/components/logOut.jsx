@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { SessionContext, useSession } from '../context/SessionContext'
+import { SessionContext, useSession } from '../context/sessionContext'
 
 const LogOut = () => {
     const { perfil, onLogOut } = useSession()

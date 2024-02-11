@@ -2,7 +2,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Nav from './nav'
-import { SessionProvider } from "../context/SessionContext.jsx";
+import { SessionProvider } from "../context/sessionContext.jsx"
 
 const Layout = ({ children, ...rest }) => {
   return (

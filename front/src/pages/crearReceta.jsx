@@ -77,7 +77,7 @@ const CrearReceta = () => {
         </label>
         <input type="text" name="link" value={receta.link} onChange={handleInputChange} />
         <button type="button" onClick={handleGuardarReceta}>
-          Guardar Receta
+          Crear receta
         </button>
       </form>
     </div>
