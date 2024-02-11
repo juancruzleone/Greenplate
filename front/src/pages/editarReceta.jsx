@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import '../styles/editar-receta.css'
+import '../styles/editar-receta.css';
 
 const EditarReceta = () => {
   const { id } = useParams();
@@ -71,7 +71,7 @@ const EditarReceta = () => {
         <label>
           Ingredientes
         </label>
-        <input type="text" name="ingredients" value={receta.ingredientes} onChange={handleInputChange} />
+        <input type="text" name="ingredientes" value={receta.ingredientes} onChange={handleInputChange} />
         <label>
           Categoría
         </label>
@@ -79,8 +79,11 @@ const EditarReceta = () => {
         <label>
           Imagen
         </label>
-        <input type="text" name="imagen" value={receta.img} onChange={handleInputChange} />
-        {/* Agrega más campos de formulario según tus necesidades */}
+        <input type="text" name="img" value={receta.img} onChange={handleInputChange} />
+        <label>
+          Enlace
+        </label>
+        <input type="text" name="link" value={receta.link} onChange={handleInputChange} />
         <button type="button" onClick={handleGuardarCambios}>
           Guardar Cambios
         </button>
