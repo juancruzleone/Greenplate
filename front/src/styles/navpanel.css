@@ -1,0 +1,27 @@
+.navPanel{
+    background-color: #121212;
+    width: 120px;
+    height: 300px;
+    margin-top: 150px;
+    border-radius: 4px;
+    margin-right: 40px;
+}
+
+.navPanel ul{
+    list-style-type: none;
+    padding: 20px;
+}
+
+.navPanel ul li{
+    margin-top: 20px;
+}
+
+.navPanel ul li a{
+    color: white;
+    font-family: "montserrat", sans-serif;
+    text-decoration: none;
+}
+
+.navPanel ul li a:hover{
+    border-bottom: 3px solid green;
+}

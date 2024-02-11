@@ -1,0 +1,31 @@
+.contenedor-quienes-somos{
+    background-color: #121212;
+    border-radius: 10px;
+    width: 1500px;
+    height: 500px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 100px;
+}
+.contenedor-quienes-somos p{
+    font-family: "montserrat", sans-serif;
+    color: white;
+    font-size: 18px;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.contenedor-quienes-somos h2{
+    font-family: "montserrat", sans-serif;
+    color: white;
+    font-size: 24px;
+    padding-left: 20px;
+    margin-top: 60px;
+}
+
+
+

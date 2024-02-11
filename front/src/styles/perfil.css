@@ -1,0 +1,11 @@
+.id-perfil{
+    background-color: #121212;
+    color: white;
+    font-family: "montserrat", sans-serif;
+    width: 280px;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: center;
+    margin-left: 60px;
+    margin-top: 30px;
+}

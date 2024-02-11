@@ -1,0 +1,68 @@
+.contenedor-panel-admin{
+    display: flex;
+}
+
+
+.tarjeta-producto-panel{
+    background-color: #121212;
+    color: white;
+    font-family: "montserrat", sans-serif;
+    height: 100px;
+    margin: 30px;
+    border-radius: 4px;
+}
+
+.tarjeta-producto-panel h3{
+    margin-bottom: 40px;
+}
+
+.tarjeta-producto-panel a{
+    color: white;
+    background-color: green;
+    text-decoration: none;
+    padding: 4px;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.boton-crear-receta{
+    background-color: gray;
+    border-radius: 4px;
+    margin-top: 20px;
+    margin-left: 10px;
+    color: white;
+    font-family: "montserrat", sans-serif;
+    border: 0px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 30px;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.tarjeta-producto-panel a{
+    cursor: pointer;
+}
+
+#boton-eliminar{
+    background-color: red;
+}
+
+#boton-editar{
+    background-color: blue;
+}
+
+#boton-ver-mas{
+    background-color: gray;
+    padding: 5px;
+}
+
+.titulo-paginas-panel{
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+.posicion-seccion-productos{
+    margin-top: 50px;
+}

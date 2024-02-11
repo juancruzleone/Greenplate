@@ -1,0 +1,6 @@
+.formulario-editar-receta{
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    padding-left: 60px;
+}

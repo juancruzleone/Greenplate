@@ -1,0 +1,23 @@
+.texto-eliminar-receta{
+    color: black;
+    font-family: "montserrat", sans-serif;
+    font-size: 20px;
+    margin-top: 80px;
+    padding-left: 50px;
+}
+
+.boton-eliminar-receta{
+    background-color: red;
+    border-radius: 4px;
+    border: 0px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.contenedor-boton-eliminar{
+    padding-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 400px;
+}
+

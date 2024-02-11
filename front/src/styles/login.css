@@ -1,0 +1,16 @@
+.titulo-iniciar-sesion{
+    text-align: center;
+}
+
+.contenedor-login{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.contenedor-login p{
+    font-family: "montserrat", sans-serif;
+    margin: auto;
+    padding-top: 30px;
+}
+
