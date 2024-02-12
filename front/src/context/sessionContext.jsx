@@ -23,7 +23,7 @@ function SessionProvider({children}){
 
     const onLogOut = useCallback(() => {
       logout();
-      localStorage.removeItem("token");
+      localStorage.removeItem("authToken");
       navigate("/login", { replace: true });
     }, [navigate]);
   

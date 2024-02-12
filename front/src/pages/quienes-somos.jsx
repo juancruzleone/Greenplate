@@ -3,7 +3,7 @@ import '../styles/quienes-somos.css'
 const quienesSomos = () => {
     return (
         <>
-        <h1>Quienes somos</h1>
+        <h1>Quiénes somos</h1>
         <div className="contenedor-quienes-somos">
             <p>¡Bienvenidos a <span>GreenPalate!</span></p>
             <p>En GreenPalate, nos apasiona la alimentación consciente y saludable. Somos un equipo comprometido con la creación de un espacio en línea donde la cocina sin gluten, vegana, vegetariana y sin lactosa se convierte en una experiencia deliciosa y accesible para todos.</p>

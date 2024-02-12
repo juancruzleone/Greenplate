@@ -18,6 +18,7 @@ const Login = () => {
     }
 
     try {
+      console.log('Enviando solicitud de inicio de sesión...');
       const response = await fetch('http://localhost:3333/api/cuenta/login', {
         method: 'POST',
         headers: {
@@ -27,6 +28,7 @@ const Login = () => {
       });
 
       if (!response.ok) {
+        console.error('Error en la solicitud:', response.status, response.statusText);
         const errorData = await response.json();
 
         // Manejar errores de validación específicos
@@ -46,8 +48,13 @@ const Login = () => {
       const data = await response.json();
       const token = data.token;
 
-      // Imprimir el token en la consola para verificar
-      console.log(token);
+      // Imprimir el nombre de usuario en la consola para verificar
+      if (data.user && data.user.userName) {
+        const username = data.user.userName;
+        console.log('Usuario autenticado:', username);
+      } else {
+        console.error('Error: No se pudo obtener el nombre de usuario desde la respuesta del servidor.');
+      }
 
       // Almacenar el token en localStorage
       localStorage.setItem('authToken', token);
@@ -55,6 +62,7 @@ const Login = () => {
       // Redirigir al home o al panel de administración según el estado de autenticación
       navigate(isAuthenticated ? '/panel' : '/');
     } catch (error) {
+      console.error('Error de red:', error);
       setError('Error de red');
     }
   };

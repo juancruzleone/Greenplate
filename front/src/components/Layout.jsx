@@ -1,8 +1,6 @@
 // Layout.jsx
-import React from "react";
-import { Link } from "react-router-dom";
-import Nav from './nav'
 import { SessionProvider } from "../context/sessionContext.jsx"
+import Nav from './nav'
 
 const Layout = ({ children, ...rest }) => {
   return (
