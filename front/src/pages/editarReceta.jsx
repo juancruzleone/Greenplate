@@ -63,7 +63,7 @@ const EditarReceta = () => {
         <label>
           Nombre:
         </label>
-        <input type="text" name="name" value={receta.name} onChange={handleInputChange} />
+        <input type="text" name="name" value={receta.name} onChange={handleInputChange}/>
         <label>
           Descripción:
         </label>

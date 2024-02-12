@@ -63,9 +63,14 @@ const ListaRecetas = () => {
             {recetas.map((receta, index) => (
               <div key={index} className="tarjeta-producto-panel">
                 <h3>{receta.name}</h3>
+                <p>{receta.categoria}</p>
+                <div className="contenedor-boton-panel">
                 <Link to={`/recetas/${receta._id}`} id="boton-ver-mas">Ver más</Link>
                 <Link to={`/recetas/${receta._id}/editar`} id="boton-editar">Editar</Link>
                 <Link to={`/recetas/${receta._id}/eliminar`} id="boton-eliminar">Eliminar</Link>
+
+                </div>
+               
               </div>
             ))}
           </div>
