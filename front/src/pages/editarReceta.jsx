@@ -69,19 +69,19 @@ const EditarReceta = () => {
         </label>
         <input type="text" name="description" value={receta.description} onChange={handleInputChange} />
         <label>
-          Ingredientes
+          Ingredientes (Separarlos con , ):
         </label>
-        <input type="text" name="ingredientes" value={receta.ingredientes} onChange={handleInputChange} />
+        <input type="text" name="ingredientes" value={receta.ingredientes} onChange={handleInputChange} placeholder="Separarlos con ,"/>
         <label>
-          Categoría
+          Categoría:
         </label>
         <input type="text" name="categoria" value={receta.categoria} onChange={handleInputChange} />
         <label>
-          Imagen
+          Imagen:
         </label>
         <input type="text" name="img" value={receta.img} onChange={handleInputChange} />
         <label>
-          Enlace
+          Enlace:
         </label>
         <input type="text" name="link" value={receta.link} onChange={handleInputChange} />
         <button type="button" onClick={handleGuardarCambios}>

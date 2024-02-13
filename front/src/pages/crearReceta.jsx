@@ -63,7 +63,7 @@ const CrearReceta = () => {
         <label>
           Ingredientes:
         </label>
-        <input type="text" name="ingredientes" value={receta.ingredientes} onChange={handleInputChange} />
+        <input type="text" name="ingredientes" value={receta.ingredientes} onChange={handleInputChange} placeholder="Separarlos con ,"/>
         <label>
           Categoría:
         </label>
