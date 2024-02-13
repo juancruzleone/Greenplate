@@ -141,8 +141,17 @@ footer ul {
 
 .contenedor-auth{
   background-color: #ebebeb;
-  border-radius: 4000px;
+  border-radius: 100000px;
   padding: 10px;
+  height: 70px;
+  width: 70px;
+}
+
+.contenedor-auth img{
+  margin: auto;
+  justify-content: center;
+  display: block
+  ;
 }
 
 .navPage ul .contenedor-auth a:hover{
@@ -160,13 +169,18 @@ footer ul {
 
 .contenedor-auth-logeado{
   background-color: #ebebeb;
-  border-radius: 4000px;
+  border-radius: 100000px;
   padding: 10px;
+  height: 70px;
+  width: 70px;
 }
 
 .contenedor-auth-logeado img{
   width: 40px;
   height: 40px;
+  margin: auto;
+  justify-content: center;
+  display: block
 }
 
 .navPage ul .contenedor-auth-logeado a:hover{
@@ -182,6 +196,10 @@ footer ul {
 
 .caja-receta-destacada h3{
   margin-bottom: 20px;
+}
+
+.contenedor-iconos-nav{
+  display: flex;
 }
 
 

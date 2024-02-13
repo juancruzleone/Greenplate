@@ -39,6 +39,7 @@ const Nav = () => {
               </Link>
             </li>
           )}
+          <div className='contenedor-iconos-nav'>
           {authToken && (
             <li className='contenedor-auth-logeado'>
               <Link to="/mi-perfil/">
@@ -47,6 +48,7 @@ const Nav = () => {
             </li>
           )}
           {authToken && <LogOut />}
+          </div>
         </div>
       </ul>
     </nav>
