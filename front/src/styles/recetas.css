@@ -84,7 +84,7 @@
 .tarjeta-receta .boton-ver-mas {
   margin-top: auto;
   align-self: center; /* Alinea el botón al centro vertical de la tarjeta */
-  background-color: green;
+  background-color: rgb(36, 58, 3);
   padding: 10px;
   color: white;
   font-family: "montserrat", sans-serif;

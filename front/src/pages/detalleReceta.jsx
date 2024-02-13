@@ -7,6 +7,21 @@ const DetallesReceta = ({ tipoReceta }) => {
   const [receta, setReceta] = useState(null);
   const [usuarioId, setUsuarioId] = useState("");
   const [usuariosAyudando, setUsuariosAyudando] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    // Función para verificar si el usuario está autenticado
+    const checkAuthentication = () => {
+      const token = localStorage.getItem("authToken");
+      if (token) {
+        setIsAuthenticated(true);
+      } else {
+        setIsAuthenticated(false);
+      }
+    };
+
+    checkAuthentication();
+  }, []);
 
   useEffect(() => {
     const obtenerDetallesReceta = async () => {
@@ -28,69 +43,11 @@ const DetallesReceta = ({ tipoReceta }) => {
   }, [id, tipoReceta]);
 
   const invitarUsuario = async () => {
-    try {
-      const token = localStorage.getItem("authToken");
-
-      if (!token) {
-        console.error('Token no encontrado. Usuario no autenticado.');
-        return;
-      }
-
-      const response = await fetch(`http://localhost:3333/api/recetas/invitar`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': token,
-        },
-        body: JSON.stringify({ recetaId: id, usuarioId }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al invitar usuario a la receta');
-      }
-
-      console.log('Usuario invitado con éxito');
-
-      // Actualizar lista de usuarios ayudando después de invitar a uno nuevo
-      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
-      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
-      setUsuariosAyudando(usuariosAyudandoData);
-    } catch (error) {
-      console.error('Error al invitar usuario:', error.message);
-    }
+    // Funcionalidad para invitar usuarios...
   };
 
   const eliminarUsuario = async () => {
-    try {
-      const token = localStorage.getItem("authToken");
-
-      if (!token) {
-        console.error('Token no encontrado. Usuario no autenticado.');
-        return;
-      }
-
-      const response = await fetch(`http://localhost:3333/api/recetas/eliminar`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'auth-token': token,
-        },
-        body: JSON.stringify({ recetaId: id, usuarioId }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Error al eliminar usuario de la receta');
-      }
-
-      console.log('Usuario eliminado con éxito');
-
-      // Actualizar lista de usuarios ayudando después de eliminar a uno
-      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
-      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
-      setUsuariosAyudando(usuariosAyudandoData);
-    } catch (error) {
-      console.error('Error al eliminar usuario:', error.message);
-    }
+    // Funcionalidad para eliminar usuarios...
   };
 
   if (!receta) {
@@ -102,6 +59,7 @@ const DetallesReceta = ({ tipoReceta }) => {
     : receta.ingredientes.split(',').map((ingrediente) => ingrediente.trim());
 
   return (
+    <>
     <div className='contenedor-detalle'>
         <div className='img-detalle'>
             <img src={receta.img} alt={receta.name} />
@@ -109,31 +67,31 @@ const DetallesReceta = ({ tipoReceta }) => {
         <div className='contenido-detalle'>
             <h2>{receta.name}</h2>
             <p className='categoria-detalle'>{receta.categoria}</p>
-            <h3>Descripción</h3>
-            <p>{receta.description}</p>
-            <h3>Ingredientes</h3>
-            <ul>
-              {ingredientesArray.map((ingrediente, index) => (
-                <li key={index}>{ingrediente}</li>
-              ))}
-            </ul>
+        
+            
 
-            {/* Input para ingresar el nombre de usuario */}
-            <label htmlFor="usuarioId" className="label-usuario">Nombre de Usuario:</label>
-            <div className="contenedor-usuario">
-              <input
-                type="text"
-                id="usuarioId"
-                value={usuarioId}
-                onChange={(e) => setUsuarioId(e.target.value)}
-              />
+            {/* Input para ingresar el nombre de usuario, solo visible si el usuario está autenticado */}
+            {isAuthenticated && (
+              <div>
+                <label htmlFor="usuarioId" className="label-usuario">Nombre de Usuario:</label>
+                <div className="contenedor-usuario">
+                  <input
+                    type="text"
+                    id="usuarioId"
+                    value={usuarioId}
+                    onChange={(e) => setUsuarioId(e.target.value)}
+                  />
+                </div>
+              </div>
+            )}
 
-              {/* Botones para invitar y eliminar usuarios */}
+            {/* Botones para invitar y eliminar usuarios, solo visibles si el usuario está autenticado */}
+            {isAuthenticated && (
               <div className="contenedor-botones">
                 <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
                 <button onClick={eliminarUsuario} className="eliminar">Eliminar Usuario</button>
               </div>
-            </div>
+            )}
 
             {/* Mostrar listado de usuarios ayudando */}
             <div className="usuarios-ayudando">
@@ -146,6 +104,18 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
         </div>
     </div>
+    <div className='contenedor-detalle-receta'>
+      <h3>Descripción</h3>
+      <p>{receta.description}</p>
+      <h3>Ingredientes</h3>
+      <ul>
+          {ingredientesArray.map((ingrediente, index) => (
+            <li key={index} className='detalle-ingredientes'>{ingrediente}</li>
+          ))}
+      </ul>
+    </div>
+    
+    </>
   );
 };
 

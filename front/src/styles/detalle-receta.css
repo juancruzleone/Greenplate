@@ -1,6 +1,7 @@
 .contenido-detalle h2{
     font-family: "montserrat", sans-serif;
     color: black;
+    font-size: 34px;
 }
 
 .contenido-detalle h3{
@@ -40,8 +41,8 @@
 .categoria-detalle{
     background-color: #121212;
     border-radius: 4px;
-    width: 100px;
-    padding: 4px;
+    width: 140px;
+    padding: 7px;
     color: white;
     text-align: center;
 }
@@ -88,3 +89,29 @@
     font-family: "montserrat", sans-serif;
     margin-bottom: 7px;
 }
+
+.contenedor-detalle-receta{
+    padding-left: 70px;
+    width: 900px;
+}
+
+.contenedor-detalle-receta h3{
+    font-family: "montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.contenedor-detalle-receta p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    margin-top: 6px;
+    margin-bottom: 40px;
+}
+
+.detalle-ingredientes{
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
