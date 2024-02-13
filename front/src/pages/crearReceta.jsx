@@ -55,11 +55,11 @@ const CrearReceta = () => {
         <label>
           Nombre:
         </label>
-        <input type="text" name="name" value={receta.name} onChange={handleInputChange} />
+        <input type="text" name="name" value={receta.name} onChange={handleInputChange} placeholder='Escribe el nombre de la receta'/>
         <label>
           Descripción:
         </label>
-        <input type="text" name="description" value={receta.description} onChange={handleInputChange} />
+        <input type="text" name="description" value={receta.description} onChange={handleInputChange} placeholder='Escribe la descripción de la receta'/>
         <label>
           Ingredientes:
         </label>
@@ -67,15 +67,15 @@ const CrearReceta = () => {
         <label>
           Categoría:
         </label>
-        <input type="text" name="categoria" value={receta.categoria} onChange={handleInputChange} />
+        <input type="text" name="categoria" value={receta.categoria} onChange={handleInputChange} placeholder='Escribe la categoria de la receta'/>
         <label>
           Imagen:
         </label>
-        <input type="text" name="img" value={receta.img} onChange={handleInputChange} />
+        <input type="text" name="img" value={receta.img} onChange={handleInputChange} placeholder='Pega la url de la imagen'/>
         <label>
           Enlace:
         </label>
-        <input type="text" name="link" value={receta.link} onChange={handleInputChange} />
+        <input type="text" name="link" value={receta.link} onChange={handleInputChange} placeholder='Pega la url de direccion'/>
         <button type="button" onClick={handleGuardarReceta}>
           Crear receta
         </button>
