@@ -39,10 +39,12 @@
 
 .contenedor-recetas {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres tarjetas por fila */
-  gap: 20px; /* Espacio entre las tarjetas */
-  padding: 40px;
+  grid-template-columns: repeat(2, 1fr); /* Tres tarjetas por fila */
+  gap: 40px; /* Espacio entre las tarjetas */
+  row-gap: 40px;
   padding-top: 0px;
+  align-items: flex-start; /* Alinea los elementos en la parte superior del contenedor */
+  margin: auto;
 }
 
 .tarjeta-receta {
@@ -54,16 +56,22 @@
   flex-direction: column;
   color: white;
   font-family: "montserrat", sans-serif;
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+  align-items: flex-start; /* Alinea los elementos en la parte superior de la tarjeta */
+  width: 450px;
+  height: 700px;
 }
 
 .tarjeta-receta h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
+  line-height: 1.2; /* Altura de línea */
+  height: 3.6rem; /* Altura máxima para dos líneas de texto */
+  overflow: hidden; /* Oculta el texto que sobresale */
 }
 
 .tarjeta-receta p {
   font-size: 1rem;
-  margin-bottom: 15px;
 }
 
 .tarjeta-receta img {
@@ -84,10 +92,21 @@
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
-  width: 400px;
+  width: 300px; /* Ancho del botón */
   text-align: center;
 }
 
 .tarjeta-receta .boton-ver-mas:hover {
   background-color: darkgreen;
+}
+
+.tarjeta-categoria {
+  background-color: #2c2c2c;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  padding: 4px;
+  border-radius: 4px;
+  text-align: center;
+  width: 100%;
 }

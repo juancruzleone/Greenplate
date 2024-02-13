@@ -130,7 +130,7 @@ const DetallesReceta = ({ tipoReceta }) => {
 
               {/* Botones para invitar y eliminar usuarios */}
               <div className="contenedor-botones">
-                <button onClick={invitarUsuario} className="invitar">Invitar Usuario</button>
+                <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
                 <button onClick={eliminarUsuario} className="eliminar">Eliminar Usuario</button>
               </div>
             </div>
