@@ -30,9 +30,13 @@ const ListadoContactos = () => {
           <div className="contenedor-productos-panel">
             {contactos.map((contacto, index) => (
               <div key={index} className="tarjeta-producto-panel">
-                <h3>{contacto.name}</h3>
-                <p>Email: {contacto.email}</p>
-                <p>Mensaje: {contacto.message}</p>
+                <div className="detalle-contacto">
+                  <h3>{contacto.name}</h3>
+                  <p><span>Email:</span> {contacto.email}</p>
+                  <p><span>Mensaje:</span> {contacto.message}</p>
+
+                </div>
+                
                 {/* Puedes agregar más detalles del contacto según tus necesidades */}
               </div>
             ))}

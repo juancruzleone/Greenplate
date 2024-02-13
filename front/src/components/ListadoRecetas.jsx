@@ -67,7 +67,7 @@ const ListaRecetas = () => {
                 </div>
                 <div>
                   <h3>{receta.name}</h3>
-                  <p>{receta.categoria}</p>
+                  <p className="categoria">{receta.categoria}</p>
                   <div className="contenedor-boton-panel">
                     <Link to={`/recetas/${receta._id}`} id="boton-ver-mas">Ver más</Link>
                     <Link to={`/recetas/${receta._id}/editar`} id="boton-editar">Editar</Link>

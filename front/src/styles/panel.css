@@ -28,7 +28,7 @@
     margin-left: 10px;
 }
 
-.tarjeta-producto-panel p{
+.tarjeta-producto-panel .categoria{
     margin-bottom: 20px;
     margin-top: 15px;
     margin-left: 20px;
@@ -37,6 +37,12 @@
     width: 100px;
     text-align: center;
     padding: 5px;
+}
+
+.tarjeta-producto-panel p{
+    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-left: 20px;;
 }
 
 .boton-crear-receta{
@@ -93,5 +99,12 @@
 .img-panel{
     width: 150px;
     height: 150px;
+    border-radius: 4px;
+}
+
+
+.detalle-contacto span{
+    background-color: #202020;
+    padding: 5px;
     border-radius: 4px;
 }
