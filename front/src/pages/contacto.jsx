@@ -102,15 +102,15 @@ const Contacto = () => {
       <div className='contenedor-contacto'>
         <form onSubmit={handleSubmit}>
           <label htmlFor='name'>Nombre</label>
-          <input type='text' id='name' name='name' value={formData.name} onChange={handleInputChange} />
+          <input type='text' id='name' name='name' value={formData.name} onChange={handleInputChange} placeholder='Escribe tu nombre'/>
           <span className='error'>{formErrors.name}</span>
 
           <label htmlFor='email'>Email</label>
-          <input type='email' id='email' name='email' value={formData.email} onChange={handleInputChange} />
+          <input type='email' id='email' name='email' value={formData.email} onChange={handleInputChange} placeholder='Escribe tu email'/>
           <span className='error'>{formErrors.email}</span>
 
           <label htmlFor='message'>Mensaje</label>
-          <textarea id='message' name='message' value={formData.message} onChange={handleInputChange}></textarea>
+          <textarea id='message' name='message' value={formData.message} onChange={handleInputChange} placeholder='Escribe el mensaje'></textarea>
           <span className='error'>{formErrors.message}</span>
 
           <button type='submit'>Enviar mensaje</button>
