@@ -17,9 +17,7 @@ const Nav = () => {
         <li>
           <Link to="/recetas">Recetas</Link>
         </li>
-        <li>
-          <Link to="/contacto">Contacto</Link>
-        </li>
+        
         {authToken && (
           <li>
             <Link to="/comunidad/">Comunidad</Link> 
@@ -30,6 +28,9 @@ const Nav = () => {
             <Link to="/panel">Panel</Link>
           </li>
         )}
+        <li>
+          <Link to="/contacto">Contacto</Link>
+        </li>
         <div className="auth-buttons">
           {!authToken && (
             <li className='contenedor-auth'>

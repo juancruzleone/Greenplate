@@ -169,7 +169,10 @@ footer ul {
   height: 40px;
 }
 
-.navPage ul .contenedor-auth-logrado a:hover{
+.navPage ul .contenedor-auth-logeado a:hover{
   border: 0px;
 }
+
+
+
 
