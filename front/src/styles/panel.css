@@ -4,12 +4,14 @@
 
 
 .tarjeta-producto-panel{
+    display: flex;
     background-color: #121212;
     color: white;
     font-family: "montserrat", sans-serif;
     height: 150px;
     margin: 30px;
     border-radius: 4px;
+    width: 700px;
 }
 
 .tarjeta-producto-panel h3{
@@ -86,4 +88,10 @@
 .contenedor-boton-panel{
     padding-left: 10px;
     padding-top: 10px;
+}
+
+.img-panel{
+    width: 150px;
+    height: 150px;
+    border-radius: 4px;
 }

@@ -62,15 +62,18 @@ const ListaRecetas = () => {
           <div className="contenedor-productos-panel">
             {recetas.map((receta, index) => (
               <div key={index} className="tarjeta-producto-panel">
-                <h3>{receta.name}</h3>
-                <p>{receta.categoria}</p>
-                <div className="contenedor-boton-panel">
-                <Link to={`/recetas/${receta._id}`} id="boton-ver-mas">Ver más</Link>
-                <Link to={`/recetas/${receta._id}/editar`} id="boton-editar">Editar</Link>
-                <Link to={`/recetas/${receta._id}/eliminar`} id="boton-eliminar">Eliminar</Link>
-
+                <div>
+                 <img src={receta.img} alt={receta.name}  className="img-panel"/>
                 </div>
-               
+                <div>
+                  <h3>{receta.name}</h3>
+                  <p>{receta.categoria}</p>
+                  <div className="contenedor-boton-panel">
+                    <Link to={`/recetas/${receta._id}`} id="boton-ver-mas">Ver más</Link>
+                    <Link to={`/recetas/${receta._id}/editar`} id="boton-editar">Editar</Link>
+                    <Link to={`/recetas/${receta._id}/eliminar`} id="boton-eliminar">Eliminar</Link>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
