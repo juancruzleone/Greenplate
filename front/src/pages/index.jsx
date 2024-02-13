@@ -52,8 +52,8 @@ const Index = () => {
         <div className="contenedor-recetas-destacadas">
           {recetasDestacadas.map((receta, index) => (
             <div key={index} className="caja-receta-destacada">
+              <img src={receta.img} alt={receta.name} className="img-destacada"/>
               <h3>{receta.name}</h3>
-              {/* Agrega más detalles de la receta según tus necesidades */}
               <Link to={`/recetas/${receta._id}`} id="boton-ver-mas-recetas-destacadas">
                 Ver más
               </Link>
