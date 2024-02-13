@@ -15,14 +15,12 @@ import NoGluten from './pages/no-gluten.jsx';
 import NoLactosa from './pages/no-lactosa.jsx';
 import DetalleReceta from './pages/detalleReceta.jsx';
 import Panel from './pages/panel.jsx';
-import EditarReceta from './pages/editarReceta.jsx'; // Importación de la nueva página
-import EliminarReceta from './pages/eliminarReceta.jsx'; // Importación de la nueva página
+import EditarReceta from './pages/editarReceta.jsx';
+import EliminarReceta from './pages/eliminarReceta.jsx';
 import CrearReceta from './pages/crearReceta.jsx'
 import PerfilUsuario from './pages/mi-perfil.jsx';
 import Comunidad from './pages/comunidad.jsx';
-
-
-// import ProductsListPage from './pages/Produ';
+import PrivateRoute from './components/PrivateRoute.jsx';
 import './styles/index.css';
 
 const routes = createBrowserRouter([
@@ -77,7 +75,9 @@ const routes = createBrowserRouter([
       },
       {
         path: 'panel',
-        element: <Panel />,
+        element: <PrivateRoute>
+          <Panel />
+        </PrivateRoute>,
         children: [
           {
             path: 'recetas/:id',
@@ -87,23 +87,33 @@ const routes = createBrowserRouter([
       },
       {
         path: 'recetas/:id/editar',
-        element: <EditarReceta />,
+        element: <PrivateRoute>
+          <EditarReceta />
+        </PrivateRoute>,
       },
       {
         path: 'recetas/:id/eliminar',
-        element: <EliminarReceta />,
+        element: <PrivateRoute>
+          <EliminarReceta />
+        </PrivateRoute>,
       },
       {
         path: 'recetas/crear',
-        element: <CrearReceta />
+        element: <PrivateRoute>
+          <CrearReceta />
+        </PrivateRoute>
       },
       {
-        path: 'mi-perfil/:id', // /usuario/:id
-        element: <PerfilUsuario />
+        path: 'mi-perfil/:id',
+        element: <PrivateRoute>
+          <PerfilUsuario />
+        </PrivateRoute>
       },
       {
-        path: 'comunidad/', // /usuario/:id
-        element: <Comunidad />
+        path: 'comunidad/',
+        element: <PrivateRoute>
+          <Comunidad />
+        </PrivateRoute>
       }
     ],
   },
