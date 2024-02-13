@@ -6,7 +6,9 @@ const LogOut = () => {
     const { perfil, onLogOut} = useSession()
 
     return (
-        <li onClick={onLogOut} className='boton-logout'>Cerrar sesión {perfil.name} </li>
+        <li onClick={onLogOut} className='contenedor-auth'>
+            <img src="cerrar-sesion.png" alt="icono cerrar sesión" id='cerrar-sesion'/>
+        </li>
     )
 }
 

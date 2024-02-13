@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import LogOut from './logOut';
 
 const Nav = () => {
-
   const authToken = localStorage.getItem('authToken');
 
   return (
@@ -31,12 +30,23 @@ const Nav = () => {
             <Link to="/panel">Panel</Link>
           </li>
         )}
-        {!authToken && (
-          <li>
-            <Link to="/login">Iniciar sesión</Link>
-          </li>
-        )}
-        {authToken && <LogOut />}
+        <div className="auth-buttons">
+          {!authToken && (
+            <li className='contenedor-auth'>
+              <Link to="/login">
+                <img src="usuario.png" alt="Iniciar sesión" /> {/* Imagen para iniciar sesión */}
+              </Link>
+            </li>
+          )}
+          {authToken && (
+            <li className='contenedor-auth-logeado'>
+              <Link to="/mi-perfil/">
+                <img src="usuario.png" alt="Perfil de usuario" /> {/* Imagen para el perfil de usuario */}
+              </Link>
+            </li>
+          )}
+          {authToken && <LogOut />}
+        </div>
       </ul>
     </nav>
   );

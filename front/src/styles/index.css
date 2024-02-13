@@ -19,6 +19,16 @@
   margin: 20px;
 }
 
+.auth-buttons {
+  margin-left: auto; /* Esto empujará los botones hacia la derecha */
+}
+
+.auth-button {
+  display: inline-block;
+  margin-left: 10px; /* Esto proporciona un espacio entre los botones */
+}
+
+
 .navPage ul li a{
   color: white;
   font-family: "montserrat", sans-serif;
@@ -73,7 +83,7 @@ footer ul {
 }
 
 
-.boton-logout{
+.boton-auth{
   color: white;
   font-family: "montserrat", sans-serif;
   background-color: red;
@@ -127,5 +137,39 @@ footer ul {
   margin-top: 10px;
   font-size: 18px;
   font-weight: 500;
+}
+
+.contenedor-auth{
+  background-color: #ebebeb;
+  border-radius: 4000px;
+  padding: 10px;
+}
+
+.navPage ul .contenedor-auth a:hover{
+  border: 0px;
+}
+
+.contenedor-auth img{
+  width: 40px;
+  height: 40px;
+}
+
+#cerrar-sesion:hover{
+  cursor: pointer;
+}
+
+.contenedor-auth-logeado{
+  background-color: #ebebeb;
+  border-radius: 4000px;
+  padding: 10px;
+}
+
+.contenedor-auth-logeado img{
+  width: 40px;
+  height: 40px;
+}
+
+.navPage ul .contenedor-auth-logrado a:hover{
+  border: 0px;
 }
 
