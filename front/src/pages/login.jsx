@@ -48,19 +48,13 @@ const Login = () => {
       const data = await response.json();
       const token = data.token;
 
-      // Imprimir el nombre de usuario en la consola para verificar
-      if (data.user && data.user.userName) {
-        const username = data.user.userName;
-        console.log('Usuario autenticado:', username);
-      } else {
-        console.error('Error: No se pudo obtener el nombre de usuario desde la respuesta del servidor.');
-      }
-
       // Almacenar el token en localStorage
       localStorage.setItem('authToken', token);
 
       // Redirigir al home o al panel de administración según el estado de autenticación
       navigate(isAuthenticated ? '/panel' : '/');
+      // Actualizar la página
+      window.location.reload();
     } catch (error) {
       console.error('Error de red:', error);
       setError('Error de red');

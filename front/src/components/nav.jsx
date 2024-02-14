@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import LogOut from './logOut';
 
 const Nav = () => {
   // Estado local para almacenar el estado de autenticación
   const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
-
-  // Efecto para actualizar el estado de autenticación al cargar el componente
-  useEffect(() => {
-    setAuthToken(localStorage.getItem('authToken'));
-  }, []);
 
   // Función para manejar el cierre de sesión
   const handleLogout = () => {
@@ -18,6 +12,8 @@ const Nav = () => {
     localStorage.removeItem('authToken');
     // Actualizar el estado de autenticación
     setAuthToken(null);
+    // Recargar la página
+    window.location.reload();
   };
 
   return (
