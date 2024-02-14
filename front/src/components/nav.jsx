@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import LogOut from './logOut';
 
 const Nav = () => {
-  const authToken = localStorage.getItem('authToken');
+  // Estado local para almacenar el estado de autenticación
+  const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+
+  // Efecto para actualizar el estado de autenticación al cargar el componente
+  useEffect(() => {
+    setAuthToken(localStorage.getItem('authToken'));
+  }, []);
+
+  // Función para manejar el cierre de sesión
+  const handleLogout = () => {
+    // Realizar la lógica de cierre de sesión
+    // Eliminar el token de autenticación del almacenamiento local
+    localStorage.removeItem('authToken');
+    // Actualizar el estado de autenticación
+    setAuthToken(null);
+  };
 
   return (
     <nav className="navPage">
@@ -47,7 +62,9 @@ const Nav = () => {
               </Link>
             </li>
           )}
-          {authToken && <LogOut />}
+          {authToken && <button onClick={handleLogout} className='contenedor-auth-logeado'>
+            <img src="cerrar-sesion.png" alt="Icono cerrar sesion" />
+            </button>}
           </div>
         </div>
       </ul>
