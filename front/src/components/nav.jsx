@@ -2,17 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Nav = () => {
-  // Estado local para almacenar el estado de autenticación
   const [authToken, setAuthToken] = useState(localStorage.getItem('authToken'));
+  const [perfilId, setPerfilId] = useState(localStorage.getItem('perfilId'));
 
-  // Función para manejar el cierre de sesión
   const handleLogout = () => {
-    // Realizar la lógica de cierre de sesión
-    // Eliminar el token de autenticación del almacenamiento local
     localStorage.removeItem('authToken');
-    // Actualizar el estado de autenticación
+    localStorage.removeItem('perfilId');
     setAuthToken(null);
-    // Recargar la página
+    setPerfilId(null);
     window.location.reload();
   };
 
@@ -46,15 +43,15 @@ const Nav = () => {
           {!authToken && (
             <li className='contenedor-auth'>
               <Link to="/login">
-                <img src="usuario.png" alt="Iniciar sesión" /> {/* Imagen para iniciar sesión */}
+                <img src="usuario.png" alt="Iniciar sesión" />
               </Link>
             </li>
           )}
           <div className='contenedor-iconos-nav'>
           {authToken && (
             <li className='contenedor-auth-logeado'>
-              <Link to="/mi-perfil/">
-                <img src="usuario.png" alt="Perfil de usuario" /> {/* Imagen para el perfil de usuario */}
+              <Link to={`/mi-perfil/${perfilId}`}>
+                <img src="usuario.png" alt="Perfil de usuario" />
               </Link>
             </li>
           )}

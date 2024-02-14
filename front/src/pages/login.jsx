@@ -46,10 +46,14 @@ const Login = () => {
 
       // Guardar el token en el estado global o en localStorage según tu aplicación
       const data = await response.json();
+      console.log(data);
+
       const token = data.token;
+      const id = data.cuenta.perfil._id
 
       // Almacenar el token en localStorage
       localStorage.setItem('authToken', token);
+      localStorage.setItem('perfilId', id)
 
       // Redirigir al home o al panel de administración según el estado de autenticación
       navigate(isAuthenticated ? '/panel' : '/');
