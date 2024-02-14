@@ -23,6 +23,7 @@
   margin-left: auto; /* Esto empujará los botones hacia la derecha */
 }
 
+
 .auth-button {
   display: inline-block;
   margin-left: 10px; /* Esto proporciona un espacio entre los botones */
@@ -204,4 +205,36 @@ footer ul {
 
 
 
+.navPage ul {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  list-style-type: none;
+  height: 100%; /* Ocupa toda la altura del nav */
+}
+
+.navPage ul li {
+  margin: 0 20px; /* Ajusta el margen */
+}
+
+.auth-buttons {
+  margin-left: auto; /* Esto empujará los botones hacia la derecha */
+  display: flex; /* Alinea los botones de inicio de sesión y perfil verticalmente */
+  align-items: center; /* Alinea verticalmente los botones de inicio de sesión y perfil */
+}
+
+.auth-button {
+  display: inline-block;
+  margin-left: 10px; /* Esto proporciona un espacio entre los botones */
+}
+
+.navPage ul li a {
+  color: white;
+  font-family: "montserrat", sans-serif;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.navPage ul li a:hover {
+  border-bottom: 5px solid greenyellow;
+}
 
