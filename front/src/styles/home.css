@@ -8,8 +8,10 @@
 }
 
 body{
-    background-image: linear-gradient(to right, green, green);
+    background-color: rgb(10, 10, 10);
+    
     /*background-image: linear-gradient(to right, green, yellow);
+    background-image: linear-gradient(to right, white, green);
     
     */
 }
