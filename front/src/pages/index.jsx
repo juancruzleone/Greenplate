@@ -30,7 +30,7 @@ const Index = () => {
       <div className="contenedor-portada-home">
         <div className="contenido-portada">
           <h1>Greenpalate</h1>
-          <p>Explora, comparte y disfruta de recetas saludables. Únete a nuestra comunidad hoy mismo."</p>
+          <p>Explora, comparte y disfruta de recetas saludables. Únete a nuestra comunidad hoy mismo.</p>
         </div>
         <img src="saludable.webp" alt="Foto saludable portada" />
       </div>
