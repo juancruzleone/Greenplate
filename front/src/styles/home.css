@@ -21,6 +21,11 @@ h1{
     padding-left: 60px;
 }
 
+.contenedor-portada-home img{
+    margin-top: 120px;
+    width: 280px;
+}
+
 .contenedor-categorias-home{
     display: flex;
     justify-content: center;

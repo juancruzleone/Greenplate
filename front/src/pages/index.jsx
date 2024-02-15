@@ -28,7 +28,7 @@ const Index = () => {
   return (
     <>
       <div className="contenedor-portada-home">
-        <h1>GreenPalate</h1>
+        <img src="logo-greenpalate2.png" alt="logo greenpalate" />
       </div>
       <section className="categorias-home">
         <h2>Categorias</h2>
