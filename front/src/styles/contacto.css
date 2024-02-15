@@ -15,7 +15,7 @@ form{
 
 form label{
     font-family: "montserrat", sans-serif;
-    color: black;
+    color: white;
     font-weight: 600;
     padding-left: 15px;
 }
@@ -26,6 +26,8 @@ form input{
     border-radius: 7px;
     margin-bottom: 20px;
     margin-top: 10px;
+    background-color: #121212;
+    border: 1px solid white;
 }
 
 form textarea{
@@ -34,6 +36,7 @@ form textarea{
     border-radius: 10px;
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: #121212;
 }
 
 input::placeholder,
@@ -52,6 +55,7 @@ textarea {
   padding: 10px; /* Espacio alrededor del texto */
   font-size: 16px; /* Tamaño de fuente */
   font-family: "montserrat", sans-serif;
+  color: white;
   /* Otros estilos según tus preferencias */
 }
 
