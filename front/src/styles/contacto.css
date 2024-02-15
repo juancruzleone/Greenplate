@@ -16,7 +16,7 @@ form{
 form label{
     font-family: "montserrat", sans-serif;
     color: black;
-    font-weight: 700;
+    font-weight: 600;
     padding-left: 15px;
 }
 
@@ -36,6 +36,25 @@ form textarea{
     margin-bottom: 20px;
 }
 
+input::placeholder,
+textarea::placeholder {
+  margin-left: 100px;
+  color: #999; /* Color del texto del placeholder */
+  font-style: italic; /* Estilo del texto del placeholder */
+  /* Otros estilos según tus preferencias */
+}
+
+
+input[type='text'],
+input[type='email'],
+textarea {
+  border: 1px solid #ccc; /* Bordes normales */
+  padding: 10px; /* Espacio alrededor del texto */
+  font-size: 16px; /* Tamaño de fuente */
+  font-family: "montserrat", sans-serif;
+  /* Otros estilos según tus preferencias */
+}
+
 form button{
     padding: 14px;
     width: 140px;
@@ -45,6 +64,10 @@ form button{
     background-color: rgb(36, 58, 3);
     color: white;
     cursor: pointer;
+}
+
+form button:hover{
+  background-color: darkgreen;
 }
 
 .modal {

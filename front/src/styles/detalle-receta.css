@@ -1,12 +1,12 @@
 .contenido-detalle h2{
     font-family: "montserrat", sans-serif;
-    color: black;
+    color: white;
     font-size: 34px;
 }
 
 .contenido-detalle h3{
     font-family: "montserrat", sans-serif;
-    color: black;
+    color: white;
     font-weight: 500;
     margin-top: 30px;
 }
@@ -100,21 +100,35 @@
     font-weight: 600;
     font-size: 24px;
     margin-bottom: 10px;
+    color: white;
+    border-bottom: 1px solid white;
 }
 
 .contenedor-detalle-receta p{
     font-family: "montserrat", sans-serif;
     font-weight: 500;
-    margin-top: 6px;
+    margin-top: 15px;
     margin-bottom: 40px;
+    color: white;
+    background-color: #121212;
+    border-radius: 10px;
+    padding: 15px;
 }
 
 .detalle-ingredientes{
     font-family: "montserrat", sans-serif;
     font-weight: 500;
     margin-bottom: 6px;
+    color: white;
+    background-color: #121212;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 30px;
+    list-style-type: none;
 }
 
 input{
     font-family: "montserrat", sans-serif;
 }
+
+
