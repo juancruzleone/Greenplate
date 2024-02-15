@@ -27,5 +27,50 @@ span{
     margin-top: 60px;
 }
 
+.contenedor-nuestra-historia{
+    display: flex;
+    padding-left: 60px;
+    padding-top: 100px;
+}
+
+.contenedor-nuestra-historia h2{
+    font-family: "montserrat", sans-serif;
+    color: white;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+.contenedor-nuestra-historia img{
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.contenedor-nuestra-historia p{
+    color: white;
+    font-family: "montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.nuestra-historia p{
+    width: 1000px;
+    border-radius: 4px;
+}
+
+#primer-h2{
+    margin-top: 0px;
+}
+
+.contenedor-nuestra-historia {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    padding-left: 60px;
+    padding-top: 100px;
+  }
+  
+
 
 
