@@ -55,7 +55,18 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section className="destacadas-home">
+      <section className="contenedor-unite">
+        <div className="contenido-unite">
+          <h2>Unite a nuestra comunidad</h2>
+          <p>Crea, edita y expone tus recetas ante todos</p>
+        </div>
+        <div className="img-unite">
+          <img src="receta.webp" alt="Foto de receta saludable" />
+          <img src="saludable2.webp" alt="Foto de plato saludable" />
+        </div>
+      </section>
+      {/* 
+       <section className="destacadas-home">
         <h2>Recetas destacadas</h2>
         <div className="contenedor-recetas-destacadas">
           {recetasDestacadas.map((receta, index) => (
@@ -68,6 +79,10 @@ const Index = () => {
             </div>
           ))}
         </div>
+      </section>
+      */}
+      <section className="contenedor-preguntas-frecuentes">
+        <h2>Preguntas frecuentes</h2>
       </section>
     </>
   );

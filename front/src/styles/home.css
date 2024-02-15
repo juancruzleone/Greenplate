@@ -66,16 +66,18 @@ h1{
     margin-bottom: 20px;
     font-family: "montserrat", sans-serif;
     color: white;
-    font-size: 32px;
-    font-weight: 600;
+    font-size: 28px;
+    font-weight: 400;
 }
 
 .caja-categoria-home{
     background-color: #121212;
     border-radius: 20px;
     margin: 10px;
-    width: 200px;
-    height: 160px;
+    /*width: 200px;*/
+    width: 300px;
+    /*height: 160px;*/
+    height: 200px;
     padding-top: 40px;
     cursor: pointer;
 }
@@ -102,6 +104,8 @@ h1{
     padding-left: 80px;
     margin-bottom: 20px;
     margin-top: 80px;
+    font-weight: 400;
+    font-size: 28px;
 }
 
 .contenedor-recetas-destacadas {
@@ -138,3 +142,53 @@ h1{
     border-radius: 5px;
     font-family: "montserrat", sans-serif;
   }
+
+  .contenedor-preguntas-frecuentes{
+    padding-left: 180px;
+  }
+
+.contenedor-preguntas-frecuentes h2{
+    color: white;
+    font-family: "montserrat", sans-serif;
+    margin-bottom: 80px;
+    margin-top: 80px;
+    font-weight: 400;
+    font-size: 28px;
+}
+
+.contenedor-unite{
+    background-color: #121212;
+    width: 1326px;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    margin-top: 80px;
+}
+
+.contenedor-unite h2{
+    font-family: "montserrat", sans-serif;
+    color: white;
+    font-weight: 400;
+}
+
+.contenedor-unite p{
+    color: white;
+    font-family: "montserrat", sans-serif;
+    margin-top: 10px;
+}
+
+.contenido-unite{
+    padding-right: 400px;
+}
+
+.img-unite{
+    display: block;
+}
+
+.img-unite img{
+    width: 200px;
+    border-radius: 4px;
+    display: block;
+
+}
