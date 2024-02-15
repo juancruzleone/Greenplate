@@ -17,27 +17,32 @@ const Nav = () => {
     <nav className="navPage">
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">
+            <img src="logo-greenpalate-blanco.png" alt="Logo greenpalate" className='logo-nav'/>
+          </Link>  
         </li>
         <li>
-          <Link to="/quienes-somos">Quiénes somos</Link>
+          <Link to="/" className='secciones'>Home</Link>
         </li>
         <li>
-          <Link to="/recetas">Recetas</Link>
+          <Link to="/quienes-somos" className='secciones'>Quiénes somos</Link>
+        </li>
+        <li>
+          <Link to="/recetas" className='secciones'>Recetas</Link>
         </li>
         
         {authToken && (
           <li>
-            <Link to="/comunidad/">Comunidad</Link> 
+            <Link to="/comunidad/" className='secciones'>Comunidad</Link> 
           </li>
         )}
         {authToken && (
           <li>
-            <Link to="/panel">Panel</Link>
+            <Link to="/panel" className='secciones'>Panel</Link>
           </li>
         )}
         <li>
-          <Link to="/contacto">Contacto</Link>
+          <Link to="/contacto" className='secciones'>Contacto</Link>
         </li>
         <div className="auth-buttons">
           {!authToken && (

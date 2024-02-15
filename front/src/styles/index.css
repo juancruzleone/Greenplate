@@ -30,16 +30,18 @@
 }
 
 
-.navPage ul li a{
+.navPage ul li .secciones{
   color: white;
   font-family: "montserrat", sans-serif;
   font-size: 22px;
   text-decoration: none;
 }
 
-.navPage ul li a:hover{
-  border-bottom: 5px solid greenyellow;
+.navPage ul li .secciones:hover {
+  border-bottom: 5px solid greenyellow; /* Efecto hover aplicado a todos los enlaces */
 }
+
+
 
 footer{
   background-color: #121212;
@@ -241,7 +243,9 @@ footer ul {
   text-decoration: none;
 }
 
-.navPage ul li a:hover {
-  border-bottom: 5px solid greenyellow;
+
+.logo-nav{
+  width: 120px;
 }
+
 
