@@ -7,21 +7,25 @@ const NavRecetas = ({ cambiaCategoria, categoriaSeleccionada }) => {
         <ul>
           <li>
             <Link to="#" onClick={() => cambiaCategoria("vegana")} className={categoriaSeleccionada === "veganas" ? 'seleccionada' : ''}>
+              <img src="icono-vegano.png" alt="Iconos recetas veganas" className="icono-nav"/>
               Veganas
             </Link>
           </li>
           <li>
             <Link to="#" onClick={() => cambiaCategoria("vegetariana")} className={categoriaSeleccionada === "vegetarianas" ? 'seleccionada' : ''}>
+              <img src="icono-vegetarianas.png" alt="Icono recetas vegetarianas" className="icono-nav"/>
               Vegetarianas
             </Link>
           </li>
           <li>
             <Link to="#" onClick={() => cambiaCategoria("no gluten")} className={categoriaSeleccionada === "no gluten" ? 'seleccionada' : ''}>
+              <img src="icono-no-gluten.png" alt="Icono recetas sin gluten" className="icono-nav"/>
               Sin gluten
             </Link>
           </li>
           <li id="ultimaRecetaMenu">
             <Link to="#" onClick={() => cambiaCategoria("no lactosa")} className={categoriaSeleccionada === "no lactosa" ? 'seleccionada' : ''}>
+              <img src="icono-no-lactosa.png" alt="Icono recetas sin lactosa" className="icono-nav"/>
               Sin lactosa
             </Link>
           </li>

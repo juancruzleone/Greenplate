@@ -22,6 +22,8 @@
     text-decoration: none;
 }
 
-.navPanel ul li a:hover{
-    border-bottom: 3px solid green;
+
+.icono-nav{
+    width: 30px;
+    margin-right: 7px;
 }
