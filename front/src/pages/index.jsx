@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import PreguntasFrecuentes from "../components/PreguntaasFrecuentes"
 import '../styles/home.css';
 
 const Index = () => {
@@ -34,7 +35,10 @@ const Index = () => {
         </div>
         <img src="saludable.webp" alt="Foto saludable portada" />
       </div>
-      <section className="categorias-home">
+      <Link href="#categorias">
+        <img src="flecha-abajo.webp" alt="Foto de flecha para abajo" className="img-flecha"/>
+      </Link>
+      <section className="categorias-home" id="categorias">
         <h2>Categorias</h2>
         <div className="contenedor-categorias-home">
           <div className="caja-categoria-home">
@@ -62,7 +66,6 @@ const Index = () => {
         </div>
         <div className="img-unite">
           <img src="receta.webp" alt="Foto de receta saludable" />
-          <img src="saludable2.webp" alt="Foto de plato saludable" />
         </div>
       </section>
       {/* 
@@ -83,6 +86,7 @@ const Index = () => {
       */}
       <section className="contenedor-preguntas-frecuentes">
         <h2>Preguntas frecuentes</h2>
+        <PreguntasFrecuentes />
       </section>
     </>
   );
