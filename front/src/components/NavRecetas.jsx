@@ -7,7 +7,7 @@ const NavRecetas = ({ cambiaCategoria, categoriaSeleccionada }) => {
         <ul>
           <li>
             <Link to="#" onClick={() => cambiaCategoria("vegana")} className={categoriaSeleccionada === "veganas" ? 'seleccionada' : ''}>
-              <img src="icono-veganwebp" alt="Iconos recetas veganas" className="icono-nav"/>
+              <img src="icono-vegano.webp" alt="Iconos recetas veganas" className="icono-nav"/>
               Veganas
             </Link>
           </li>

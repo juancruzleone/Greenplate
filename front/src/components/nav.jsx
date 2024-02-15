@@ -61,7 +61,7 @@ const Nav = () => {
             </li>
           )}
           {authToken && <button onClick={handleLogout} className='contenedor-auth-logeado'>
-            <img src="cerrar-sesion.webp" alt="Icono cerrar sesion" />
+            <img src="cerrar-sesion.webp" alt="Icono cerrar sesion"/>
             </button>}
           </div>
         </div>
