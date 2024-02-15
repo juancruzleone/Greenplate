@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Bradley+Hand+ITC&display=swap');
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -12,20 +15,36 @@ body{
 }
 
 h1{
-    font-family: "montserrat", sans-serif;
+    font-family: 'Bradley Hand ITC', cursive;
     color: white;
     margin-top: 140px;
-    font-size: 40px;
+    font-size: 60px;
   }
   
 
 .contenedor-portada-home{
+    padding-left: 20px;
+    display: flex;
+}
+
+.contenedor-portada-home p{
+    font-family: "montserrat", sans-serif;
+    font-weight: 500;
+    color: white;
     padding-left: 60px;
+    padding-top: 30px;
+    font-size: 19px;
 }
 
 .contenedor-portada-home img{
     margin-top: 120px;
-    width: 280px;
+    width: 380px;
+    border-radius: 10px;
+}
+
+.contenido-portada{
+    width: 600px;
+    margin-right: 300px;
 }
 
 .contenedor-categorias-home{
