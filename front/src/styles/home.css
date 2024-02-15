@@ -6,7 +6,9 @@
 
 body{
     background-image: linear-gradient(to right, green, green);
-    /*background-image: linear-gradient(to right, green, yellow);*/
+    /*background-image: linear-gradient(to right, green, yellow);
+    
+    */
 }
 
 h1{
@@ -52,7 +54,7 @@ h1{
     margin: 10px;
     width: 200px;
     height: 160px;
-    padding-top: 20px;
+    padding-top: 40px;
     cursor: pointer;
 }
 
@@ -63,6 +65,13 @@ h1{
     font-weight: 400;
     padding-left: 20px;
     text-decoration: none;
+}
+
+.caja-categoria-home img{
+    margin: auto;
+    justify-content: center;
+    width: 50px;
+    margin-left: 5px;
 }
 
 .destacadas-home h2{

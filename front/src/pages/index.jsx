@@ -35,15 +35,19 @@ const Index = () => {
         <div className="contenedor-categorias-home">
           <div className="caja-categoria-home">
             <Link to="/veganas">Veganas</Link>
+            <img src="icono-vegano.png" alt="Icono recetas veganas" />
           </div>
           <div className="caja-categoria-home">
             <Link to="/vegetarianas">Vegetarianas</Link>
+            <img src="icono-vegetarianas.png" alt="Icono recetas vegetarianas" />
           </div>
           <div className="caja-categoria-home">
             <Link to="/no-gluten">No gluten</Link>
+            <img src="icono-no-gluten.png" alt="Icono recetas no gluten" />
           </div>
           <div className="caja-categoria-home">
             <Link to="/no-lactosa">No lactosa</Link>
+            <img src="icono-no-lactosa.png" alt="Icono recetas no lactosa" />
           </div>
         </div>
       </section>
