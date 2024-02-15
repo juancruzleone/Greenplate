@@ -1,5 +1,7 @@
 .titulo-iniciar-sesion{
     text-align: center;
+    padding-left: 0px;
+    margin-left: 0px;
 }
 
 .contenedor-login{
@@ -12,5 +14,11 @@
     font-family: "montserrat", sans-serif;
     margin: auto;
     padding-top: 30px;
+    color: white;
 }
 
+input[type='password']{
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+}

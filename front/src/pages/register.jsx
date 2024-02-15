@@ -78,7 +78,7 @@ const Register = () => {
             value={contraseña}
             onChange={(e) => setContraseña(e.target.value)}
           />
-          <button type='submit'>Regístrate</button>
+          <button type='submit' id='boton-registro'>Regístrate</button>
           {error && <p className='error'>{error}</p>}
         </form>
       </div>
