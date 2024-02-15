@@ -7,7 +7,7 @@ const LogOut = () => {
 
     return (
         <li onClick={onLogOut} className='contenedor-auth'>
-            <img src="cerrar-sesion.png" alt="icono cerrar sesión" id='cerrar-sesion'/>
+            <img src="cerrar-sesion.webp" alt="icono cerrar sesión" id='cerrar-sesion'/>
         </li>
     )
 }

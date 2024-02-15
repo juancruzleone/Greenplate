@@ -43,7 +43,7 @@ const Nav = () => {
           {!authToken && (
             <li className='contenedor-auth'>
               <Link to="/login">
-                <img src="usuario.png" alt="Iniciar sesión" />
+                <img src="usuario.webp" alt="Iniciar sesión" />
               </Link>
             </li>
           )}
@@ -51,12 +51,12 @@ const Nav = () => {
           {authToken && (
             <li className='contenedor-auth-logeado'>
               <Link to={`/mi-perfil/${perfilId}`}>
-                <img src="usuario.png" alt="Perfil de usuario" />
+                <img src="usuario.webp" alt="Perfil de usuario" />
               </Link>
             </li>
           )}
           {authToken && <button onClick={handleLogout} className='contenedor-auth-logeado'>
-            <img src="cerrar-sesion.png" alt="Icono cerrar sesion" />
+            <img src="cerrar-sesion.webp" alt="Icono cerrar sesion" />
             </button>}
           </div>
         </div>

@@ -5,7 +5,7 @@ const quienesSomos = () => {
         <>
         <h1>Quiénes somos</h1>
         <div className="contenedor-nuestra-historia">
-            <img src="equipo-trabajando.jpg" alt="Equipo trabajando" />
+            <img src="equipo-trabajando.webp" alt="Equipo trabajando" />
             <div className='nuestra-historia'>
                 <h2 id='primer-h2'>Nuestra historia</h2>
                 <p>En GreenPalate, nos apasiona la alimentación consciente y saludable. Somos un equipo comprometido con la creación de un espacio en línea donde la cocina sin gluten, vegana, vegetariana y sin lactosa se convierte en una experiencia deliciosa y accesible para todos.</p>
