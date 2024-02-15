@@ -48,6 +48,12 @@ footer{
   margin-top: 180px;
 }
 
+.img-footer{
+  display: block;
+  justify-content: center;
+  margin: auto;
+}
+
 footer h3{
   color: white;
   font-family: "montserrat", sans-serif;
@@ -69,7 +75,8 @@ footer ul li a{
 }
 
 footer ul li a:hover{
-  border-bottom: 3px solid green;
+
+  color: rgb(187, 187, 187);
 }
 
 footer ul {

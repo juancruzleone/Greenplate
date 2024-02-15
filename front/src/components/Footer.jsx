@@ -6,12 +6,13 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-logo">
-          <h3>GreenPalate</h3>
+          <img src="logo-greenpalate-blanco.png" alt="Logo greenpalate" className='img-footer'/>
         </div>
         <div className="footer-links">
           <ul>
             <li>
                 <Link to="/">Inicio</Link>
+                <Link to="/">Quiénes somos</Link>
                 <Link to="/recetas">recetas</Link>
                 <Link to="/contacto">contacto</Link>
             </li>
