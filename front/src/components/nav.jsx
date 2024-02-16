@@ -18,7 +18,7 @@ const Nav = () => {
       <ul>
         <li>
           <Link to="/">
-            <img src="logo-greenpalate-blanco.png" alt="Logo greenpalate" className='logo-nav'/>
+            <img src="logo-greenpalate-blanco.webp" alt="Logo greenpalate" className='logo-nav'/>
           </Link>  
         </li>
         <li>
