@@ -24,6 +24,7 @@
     transition: max-height 0.3s ease-in-out;
     font-family: "montserrat", sans-serif;
     color: black;
+    font-size: 20px;
   }
   
   .respuestaVisible {
@@ -31,7 +32,7 @@
   }
 
   .contenedorPreguntaRespuesta {
-    width: 1300px;
+    width: 1270px;
     height: 60px;
     background-color: #121212;
     margin-top: -50px;
@@ -42,7 +43,8 @@
     font-size: 24px;
     float: right;
     cursor: pointer;
-    background-color: black;
+    background-color: white;
+    font-weight: bold;
     border: none;
     outline: none;
     width: 30px;
@@ -50,7 +52,7 @@
   }
   
   .toggleButton:hover {
-    color: red;
+    color: darkgreen;
   }
   
   #pregunta {

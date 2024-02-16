@@ -6,34 +6,29 @@ const PreguntasFrecuentes = () => {
 
   const preguntasRespuestas = [
     {
-      pregunta: "¿Qué es Inelar?",
+      pregunta: "¿Qué es GreenPalate?",
       respuesta:
-        "Inelar es una empresa de tecnología especializada en el desarrollo de software y soluciones digitales para empresas de diversos sectores.",
+        "GreenPalate es un sitio web dedicado a la cocina saludable y sostenible. Proporciona a los usuarios la capacidad de crear, descubrir, editar y eliminar recetas, además de formar parte de una comunidad activa de amantes de la buena comida.",
     },
     {
-      pregunta: "¿Cuál es la misión de Inelar?",
+      pregunta: "¿Qué funciones puedo realizar en GreenPalate?",
       respuesta:
-        "Nuestra misión es proporcionar a las empresas herramientas tecnológicas innovadoras que les permitan mejorar su eficiencia y competitividad en el mercado.",
+        "En GreenPalate, puedes registrarte e iniciar sesión para acceder a todas las funciones. Una vez dentro, puedes crear tus propias recetas, editarlas según tus preferencias, eliminarlas si lo deseas y explorar las creaciones de otros usuarios. Además, puedes interactuar con la comunidad compartiendo tus experiencias culinarias y descubriendo nuevas ideas.",
     },
     {
-      pregunta: "¿Qué tipos de servicios ofrece Inelar?",
+      pregunta: "¿Cómo puedo contribuir a la comunidad de GreenPalate?",
       respuesta:
-        "Inelar ofrece una amplia gama de servicios, que incluyen desarrollo de software a medida, consultoría tecnológica, diseño de aplicaciones móviles y web, y soluciones de comercio electrónico.",
+        "¡Es fácil! Simplemente registrándote y compartiendo tus recetas favoritas. También puedes comentar en las recetas de otros usuarios, darles tu opinión y compartir tus propias variaciones. ¡La comunidad de GreenPalate está deseando conocer tus creaciones!",
     },
     {
-      pregunta: "¿Cómo puedo contactar a Inelar para obtener más información?",
+      pregunta: "¿Qué tipo de recetas puedo encontrar en GreenPalate?",
       respuesta:
-        "Puedes ponerte en contacto con nosotros a través de nuestro correo electrónico de contacto: info@inelar.com o llamando al número de teléfono +123-456-789.",
+        "GreenPalate ofrece una amplia variedad de recetas, desde platos principales hasta postres, todos centrados en ingredientes saludables y sostenibles. Encontrarás opciones para todas las dietas y preferencias alimenticias, desde veganas y vegetarianas hasta opciones sin gluten y más.",
     },
     {
-      pregunta: "¿Cuáles son los servicios que ofrece Inelar en el ámbito de seguridad contra incendios?",
+      pregunta: "¿Ofrece GreenPalate soporte técnico y ayuda?",
       respuesta:
-        "Inelar es una empresa especializada en seguridad contra incendios. Ofrecemos una amplia gama de servicios que incluyen la instalación y mantenimiento de sistemas de detección de incendios, extintores, sistemas de rociadores, y capacitación en seguridad contra incendios. Nuestro objetivo es garantizar la seguridad y protección de tu negocio frente a posibles incendios.",
-    },
-    {
-      pregunta: "¿Inelar proporciona soporte técnico y mantenimiento continuo?",
-      respuesta:
-        "Sí, ofrecemos servicios de soporte técnico y mantenimiento continuo para garantizar que las soluciones tecnológicas sigan siendo efectivas y actualizadas a lo largo del tiempo.",
+        "Sí, en GreenPalate nos preocupamos por la experiencia de nuestros usuarios. Ofrecemos soporte técnico para resolver cualquier problema que puedas encontrar, así como ayuda y consejos para sacar el máximo partido a la plataforma y a tus creaciones culinarias.",
     },
   ];
 

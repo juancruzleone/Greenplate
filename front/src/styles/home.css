@@ -145,7 +145,7 @@ h1{
   }
 
   .contenedor-preguntas-frecuentes{
-    padding-left: 180px;
+    padding-left: 190px;
   }
 
 .contenedor-preguntas-frecuentes h2{
@@ -157,14 +157,16 @@ h1{
     font-size: 28px;
 }
 
-.contenedor-unite{
+.contenedor-unite {
     background-color: #121212;
-    width: 1220px;
+    width: 1300px;
     border-radius: 20px;
-    margin: auto;
     display: flex;
+    margin: auto; /* Esto centrará horizontalmente el contenedor */
     margin-top: 80px;
+    align-items: center; /* Centrar verticalmente */
 }
+
 
 .contenedor-unite h2{
     font-family: "montserrat", sans-serif;
@@ -206,13 +208,16 @@ h1{
 
 .contenedor-unite {
     background-color: #121212;
-    width: 1220px;
+    width: 80%; /* Cambia el ancho a un porcentaje del ancho de la página */
+    max-width: 1300px; /* Limita el ancho máximo del contenedor */
     border-radius: 20px;
-    margin: auto;
     display: flex;
+    margin: auto; /* Esto centrará horizontalmente el contenedor */
     margin-top: 80px;
     align-items: center; /* Centrar verticalmente */
+    margin-left: 190px;
 }
+
 
 .contenido-unite {
     padding: 20px;
@@ -229,3 +234,5 @@ h1{
     height: 300px;
     border-radius: 20px;
 }
+
+
