@@ -69,11 +69,9 @@ const PerfilUsuario = () => {
             </tbody>
           </table>
         ) : (
-          <p>No hay recetas creadas por este usuario.</p>
+          <p>No participa en ningun receta</p>
         )}
         </div>
-      
- 
     </div>
   );
 };

@@ -13,11 +13,7 @@ const DetallesReceta = ({ tipoReceta }) => {
     // Función para verificar si el usuario está autenticado
     const checkAuthentication = () => {
       const token = localStorage.getItem("authToken");
-      if (token) {
-        setIsAuthenticated(true);
-      } else {
-        setIsAuthenticated(false);
-      }
+      setIsAuthenticated(!!token);
     };
 
     checkAuthentication();
@@ -43,11 +39,29 @@ const DetallesReceta = ({ tipoReceta }) => {
   }, [id, tipoReceta]);
 
   const invitarUsuario = async () => {
-    // Funcionalidad para invitar usuarios...
+    try {
+      await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, { method: 'POST' });
+      // Recargar los usuarios ayudando después de invitar uno nuevo
+      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
+      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
+      setUsuariosAyudando(usuariosAyudandoData);
+    } catch (error) {
+      console.error(`Error al invitar usuario:`, error);
+    }
   };
 
   const eliminarUsuario = async () => {
-    // Funcionalidad para eliminar usuarios...
+    try {
+      await fetch(`http://localhost:3333/api/recetas/${id}/eliminar/${usuarioId}`, { method: 'DELETE' });
+      // Recargar los usuarios ayudando después de eliminar uno
+      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
+      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
+      setUsuariosAyudando(usuariosAyudandoData);
+      // Limpiar el input después de eliminar el usuario
+      setUsuarioId("");
+    } catch (error) {
+      console.error(`Error al eliminar usuario:`, error);
+    }
   };
 
   if (!receta) {
@@ -60,61 +74,60 @@ const DetallesReceta = ({ tipoReceta }) => {
 
   return (
     <>
-    <div className='contenedor-detalle'>
+      <div className='contenedor-detalle'>
         <div className='img-detalle'>
-            <img src={receta.img} alt={receta.name} />
+          <img src={receta.img} alt={receta.name} />
         </div>
         <div className='contenido-detalle'>
-            <h2>{receta.name}</h2>
-            <p className='categoria-detalle'>{receta.categoria}</p>
-        
-            
+          <h2>{receta.name}</h2>
+          <p className='categoria-detalle'>{receta.categoria}</p>
 
-            {/* Input para ingresar el nombre de usuario, solo visible si el usuario está autenticado */}
-            {isAuthenticated && (
-              <div>
-                <label htmlFor="usuarioId" className="label-usuario">Nombre de Usuario:</label>
-                <div className="contenedor-usuario">
-                  <input
-                    type="text"
-                    id="usuarioId"
-                    value={usuarioId}
-                    onChange={(e) => setUsuarioId(e.target.value)}
-                  />
-                </div>
+          {/* Input para ingresar el nombre de usuario, solo visible si el usuario está autenticado */}
+          {isAuthenticated && (
+            <div>
+              <label htmlFor="usuarioId" className="label-usuario">Nombre de Usuario:</label>
+              <div className="contenedor-usuario">
+                <input
+                  type="text"
+                  id="usuarioId"
+                  value={usuarioId}
+                  onChange={(e) => setUsuarioId(e.target.value)}
+                />
               </div>
-            )}
-
-            {/* Botones para invitar y eliminar usuarios, solo visibles si el usuario está autenticado */}
-            {isAuthenticated && (
-              <div className="contenedor-botones">
-                <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
-                <button onClick={eliminarUsuario} className="eliminar">Eliminar Usuario</button>
-              </div>
-            )}
-
-            {/* Mostrar listado de usuarios ayudando */}
-            <div className="usuarios-ayudando">
-              <h3>Usuarios Ayudando</h3>
-              <ul>
-                {usuariosAyudando.map((usuario, index) => (
-                  <li key={index}>{usuario.nombre}</li>
-                ))}
-              </ul>
             </div>
+          )}
+
+          {/* Botones para invitar y eliminar usuarios, solo visibles si el usuario está autenticado */}
+          {isAuthenticated && (
+            <div className="contenedor-botones">
+              <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
+              <button onClick={eliminarUsuario} className="eliminar">Eliminar Usuario</button>
+            </div>
+          )}
+
+          {/* Mostrar listado de usuarios ayudando */}
+          <div className="usuarios-ayudando">
+            <h3>Usuarios Ayudando</h3>
+            <ul>
+              {usuariosAyudando.map((usuario, index) => (
+                <li key={index}>
+                  {usuario.nombre}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-    </div>
-    <div className='contenedor-detalle-receta'>
-      <h3>Descripción</h3>
-      <p>{receta.description}</p>
-      <h3>Ingredientes</h3>
-      <ul>
+      </div>
+      <div className='contenedor-detalle-receta'>
+        <h3>Descripción</h3>
+        <p>{receta.description}</p>
+        <h3>Ingredientes</h3>
+        <ul>
           {ingredientesArray.map((ingrediente, index) => (
             <li key={index} className='detalle-ingredientes'>{ingrediente}</li>
           ))}
-      </ul>
-    </div>
-    
+        </ul>
+      </div>
     </>
   );
 };
