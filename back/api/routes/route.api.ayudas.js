@@ -1,15 +1,16 @@
+// routes.api.ayudas.js
 import { Router } from 'express';
 import * as controllers from '../controllers/controller.api.ayudas.js';
 
 const route = Router();
 
-// Invitar usuario a la receta por nombre de usuario
-route.post('/recetas/:id/invitar/:nombreUsuario', controllers.invitarUsuarioPorNombre);
+// Invitar usuario a una receta específica por ID
+route.post('/recetas/:id/invitar/:nombreUsuario', controllers.invitarUsuario);
 
-// Eliminar usuario de la receta
-route.delete('/recetas/:id/usuarios/:nombreUsuario', controllers.eliminarUsuarioPorNombre);
+// Eliminar usuario de una receta específica por ID
+route.delete('/recetas/:id/eliminar/:nombreUsuario', controllers.eliminarUsuario);
 
-// Obtener lista de usuarios ayudando
+// Obtener lista de usuarios ayudando en una receta específica por ID
 route.get('/recetas/:id/usuarios-ayudando', controllers.obtenerUsuariosAyudando);
 
 export default route;
