@@ -1,11 +1,10 @@
-// detalleReceta.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/detalle-receta.css';
 
 const DetallesReceta = ({ tipoReceta }) => {
   const { id } = useParams();
-  const [receta, setReceta] = useState(null);
+  const [receta, setReceta] = useState({});
   const [usuarioId, setUsuarioId] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -71,7 +70,7 @@ const DetallesReceta = ({ tipoReceta }) => {
     }
   };
 
-  if (!receta) {
+  if (!receta.name) {
     return <div>Cargando detalles de la receta...</div>;
   }
 
@@ -129,14 +128,14 @@ const DetallesReceta = ({ tipoReceta }) => {
         <div className="usuarios-ayudando">
             <h3>Usuarios Ayudando</h3>
             <ul>
-              {receta.usuariosInvitados.map((usuario, index) => (
+              {receta.usuariosInvitados && receta.usuariosInvitados.map((usuario, index) => (
                 <li key={index}>
                   {usuario}
                 </li>
               ))}
             </ul>
             {receta.usuariosInvitados.length === 0 && (
-              <p>No hay usuarios ayudando.</p>
+              <p>No hay usuarios invitados.</p>
             )}
           </div>
       </div>
