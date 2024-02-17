@@ -5,8 +5,7 @@ import ApiRecetaRoute from '../api/routes/route.api.recetas.js';
 import ApiContactoRoute from '../api/routes/route.api.contactos.js';
 import ApiAuthRoute from '../api/routes/route.api.auth.js';
 import ApiUsuariosRoutes from '../api/routes/route.api.usuarios.js';
-import ApiAyudas from '../api/routes/route.api.ayudas.js'
-
+import ApiAyudas from '../api/routes/route.api.ayudas.js';
 
 
 
@@ -24,6 +23,7 @@ app.use('/api', ApiContactoRoute);
 app.use('/api', ApiAuthRoute);
 app.use('/api', ApiUsuariosRoutes);
 app.use('/api', ApiAyudas)
+
 
 
 const PORT = 3333;

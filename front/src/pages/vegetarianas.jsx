@@ -9,7 +9,7 @@ const Vegetarianas = () => {
   useEffect(() => {
     const obtenerRecetasVegetarianas = async () => {
       try {
-        const response = await fetch('http://localhost:3333/api/vegetarianas');
+        const response = await fetch('http://localhost:3333/api/recetas/vegetarianas');
 
         if (!response.ok) {
           throw new Error('Error al obtener recetas vegetarianas');
