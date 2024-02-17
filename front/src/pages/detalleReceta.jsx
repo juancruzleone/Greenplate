@@ -41,10 +41,10 @@ const DetallesReceta = ({ tipoReceta }) => {
   const invitarUsuario = async () => {
     try {
       await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, { method: 'POST' });
-      // Recargar los usuarios ayudando después de invitar uno nuevo
-      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
-      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
-      setUsuariosAyudando(usuariosAyudandoData);
+      // Actualizar el estado local con el nuevo usuario invitado
+      setUsuariosAyudando([...usuariosAyudando, { name: usuarioId }]);
+      // Limpiar el input después de invitar al usuario
+      setUsuarioId("");
     } catch (error) {
       console.error(`Error al invitar usuario:`, error);
     }
@@ -53,10 +53,9 @@ const DetallesReceta = ({ tipoReceta }) => {
   const eliminarUsuario = async () => {
     try {
       await fetch(`http://localhost:3333/api/recetas/${id}/eliminar/${usuarioId}`, { method: 'DELETE' });
-      // Recargar los usuarios ayudando después de eliminar uno
-      const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
-      const usuariosAyudandoData = await usuariosAyudandoResponse.json();
-      setUsuariosAyudando(usuariosAyudandoData);
+      // Filtrar el usuario eliminado y actualizar el estado local
+      const nuevosUsuariosAyudando = usuariosAyudando.filter(usuario => usuario.name !== usuarioId);
+      setUsuariosAyudando(nuevosUsuariosAyudando);
       // Limpiar el input después de eliminar el usuario
       setUsuarioId("");
     } catch (error) {
@@ -106,27 +105,33 @@ const DetallesReceta = ({ tipoReceta }) => {
           )}
 
           {/* Mostrar listado de usuarios ayudando */}
-          <div className="usuarios-ayudando">
+        </div>
+      </div>
+      <div className='contenedor-detalle-receta'>
+        <div className='contenido-receta'>
+          <h3>Descripción</h3>
+          <p>{receta.description}</p>
+          <h3>Ingredientes</h3>
+          <ul>
+            {ingredientesArray.map((ingrediente, index) => (
+              <li key={index} className='detalle-ingredientes'>{ingrediente}</li>
+            ))}
+          </ul>  
+        </div>
+        <div className="usuarios-ayudando">
             <h3>Usuarios Ayudando</h3>
             <ul>
               {usuariosAyudando.map((usuario, index) => (
                 <li key={index}>
-                  {usuario.nombre}
+                  {usuario.name}
                 </li>
               ))}
             </ul>
-          </div>
+            {usuariosAyudando.length === 0 && (
+            <p>No hay usuarios ayudando.</p>
+          )}
         </div>
-      </div>
-      <div className='contenedor-detalle-receta'>
-        <h3>Descripción</h3>
-        <p>{receta.description}</p>
-        <h3>Ingredientes</h3>
-        <ul>
-          {ingredientesArray.map((ingrediente, index) => (
-            <li key={index} className='detalle-ingredientes'>{ingrediente}</li>
-          ))}
-        </ul>
+      
       </div>
     </>
   );

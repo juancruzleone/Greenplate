@@ -69,7 +69,7 @@ const PerfilUsuario = () => {
             </tbody>
           </table>
         ) : (
-          <p>No participa en ningun receta</p>
+          <p className="participacion-vacia">No participa en ningun receta</p>
         )}
         </div>
     </div>
