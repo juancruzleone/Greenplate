@@ -1,60 +1,64 @@
-import { getDB } from '../db.js';
+// ayuda.services.js
+import { MongoClient, ObjectId } from 'mongodb';
 
-// Función para invitar un usuario a ayudar en una receta
-async function invitarUsuario(idReceta, datosUsuario) {
-  const db = getDB();
-  try {
-    // Verifica si la receta existe
-    const receta = await db.collection('recetas').findOne({ _id: idReceta });
-    if (!receta) {
-      throw new Error("La receta no existe");
+const client = new MongoClient("mongodb+srv://juan:Juanchocruz1234@recetas.uc27w62.mongodb.net/"); 
+client.connect().then(() => console.log('Connected to MongoDB'))
+.catch(err => console.error('Error connecting to MongoDB:', err));
+
+const db = client.db("AH20232CP1");
+
+// Servicio para invitar usuario a una receta por nombre de usuario
+export async function invitarUsuarioPorNombre(recetaId, nombreUsuario) {
+    try {
+        const result = await db.collection('recetas').updateOne(
+            { _id: new ObjectId(recetaId) },
+            { $addToSet: { usuariosInvitados: nombreUsuario } }
+        );
+
+        if (result.matchedCount === 0) {
+            throw new Error("Receta no encontrada");
+        }
+
+        return { message: "Usuario invitado correctamente" };
+    } catch (error) {
+        console.error("Error al invitar usuario a receta:", error);
+        throw error;
     }
+}
 
-    // Agrega el usuario a la lista de usuarios ayudando en la receta
-    await db.collection('recetas').updateOne(
-      { _id: idReceta },
-      { $addToSet: { usuariosAyudando: datosUsuario.userId } }
-    );
+// Servicio para eliminar usuario de una receta por nombre de usuario
+export async function eliminarUsuarioPorNombre(recetaId, nombreUsuario) {
+    try {
+        const result = await db.collection('recetas').updateOne(
+            { _id: new ObjectId(recetaId) },
+            { $pull: { usuariosInvitados: nombreUsuario } }
+        );
+
+        if (result.matchedCount === 0) {
+            throw new Error("Receta no encontrada");
+        }
+
+        return { message: "Usuario eliminado correctamente" };
+    } catch (error) {
+        console.error("Error al eliminar usuario de receta:", error);
+        throw error;
+    }
+}
+
+// Servicio para obtener lista de usuarios ayudando en una receta por ID
+// Servicio para obtener lista de usuarios ayudando en una receta por ID
+export async function obtenerUsuariosAyudando(recetaId) {
+  try {
+      const receta = await db.collection('recetas').findOne({ _id: new ObjectId(recetaId) });
+
+      if (!receta) {
+          throw new Error("Receta no encontrada");
+      }
+
+      return receta.usuariosInvitados || [];
   } catch (error) {
-    throw new Error(error.message);
+      console.error("Error al obtener usuarios ayudando en receta:", error);
+      throw error;
   }
 }
 
-// Función para eliminar un usuario de la lista de ayuda de una receta
-async function eliminarUsuario(idReceta, idUsuario) {
-  const db = getDB();
-  try {
-    // Verifica si la receta existe
-    const receta = await db.collection('recetas').findOne({ _id: idReceta });
-    if (!receta) {
-      throw new Error("La receta no existe");
-    }
-
-    // Elimina al usuario de la lista de usuarios ayudando en la receta
-    await db.collection('recetas').updateOne(
-      { _id: idReceta },
-      { $pull: { usuariosAyudando: idUsuario } }
-    );
-  } catch (error) {
-    throw new Error(error.message);
-  }
-}
-
-// Función para obtener la lista de usuarios ayudando en una receta
-async function obtenerUsuariosAyudando(idReceta) {
-  const db = getDB();
-  try {
-    // Verifica si la receta existe
-    const receta = await db.collection('recetas').findOne({ _id: idReceta });
-    if (!receta) {
-      throw new Error("La receta no existe");
-    }
-
-    // Devuelve la lista de usuarios ayudando en la receta
-    return receta.usuariosAyudando;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-}
-
-export { invitarUsuario, eliminarUsuario, obtenerUsuariosAyudando };
