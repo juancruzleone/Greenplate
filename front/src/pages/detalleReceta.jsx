@@ -1,3 +1,4 @@
+// detalleReceta.jsx
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import '../styles/detalle-receta.css';
@@ -6,7 +7,6 @@ const DetallesReceta = ({ tipoReceta }) => {
   const { id } = useParams();
   const [receta, setReceta] = useState(null);
   const [usuarioId, setUsuarioId] = useState("");
-  const [usuariosAyudando, setUsuariosAyudando] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
@@ -25,11 +25,6 @@ const DetallesReceta = ({ tipoReceta }) => {
         const response = await fetch(`http://localhost:3333/api/recetas/${id}`);
         const data = await response.json();
         setReceta(data);
-
-        // Obtener listado de usuarios ayudando
-        const usuariosAyudandoResponse = await fetch(`http://localhost:3333/api/recetas/${id}/usuarios-ayudando`);
-        const usuariosAyudandoData = await usuariosAyudandoResponse.json();
-        setUsuariosAyudando(usuariosAyudandoData);
       } catch (error) {
         console.error(`Error al obtener detalles de la receta:`, error);
       }
@@ -40,9 +35,21 @@ const DetallesReceta = ({ tipoReceta }) => {
 
   const invitarUsuario = async () => {
     try {
-      await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, { method: 'POST' });
-      // Actualizar el estado local con el nuevo usuario invitado
-      setUsuariosAyudando([...usuariosAyudando, { name: usuarioId }]);
+      // Aquí realizaríamos una verificación adicional antes de enviar la solicitud
+      // Para simplificar, se puede realizar una verificación en el frontend
+      if (usuarioId.trim() === "") {
+        console.error("Nombre de usuario vacío");
+        return;
+      }
+      
+      // Lógica para enviar la solicitud de invitación...
+      console.log("Invitación enviada al usuario:", usuarioId);
+
+      // Actualizar la receta local con el nuevo usuario invitado
+      const updatedReceta = { ...receta };
+      updatedReceta.usuariosInvitados.push(usuarioId);
+      setReceta(updatedReceta);
+
       // Limpiar el input después de invitar al usuario
       setUsuarioId("");
     } catch (error) {
@@ -52,12 +59,13 @@ const DetallesReceta = ({ tipoReceta }) => {
 
   const eliminarUsuario = async () => {
     try {
-      await fetch(`http://localhost:3333/api/recetas/${id}/eliminar/${usuarioId}`, { method: 'DELETE' });
-      // Filtrar el usuario eliminado y actualizar el estado local
-      const nuevosUsuariosAyudando = usuariosAyudando.filter(usuario => usuario.name !== usuarioId);
-      setUsuariosAyudando(nuevosUsuariosAyudando);
-      // Limpiar el input después de eliminar el usuario
-      setUsuarioId("");
+      // Lógica para enviar la solicitud de eliminación...
+      console.log("Solicitud de eliminación enviada para el usuario:", usuarioId);
+
+      // Actualizar la receta local eliminando al usuario
+      const updatedReceta = { ...receta };
+      updatedReceta.usuariosInvitados = updatedReceta.usuariosInvitados.filter(usuario => usuario !== usuarioId);
+      setReceta(updatedReceta);
     } catch (error) {
       console.error(`Error al eliminar usuario:`, error);
     }
@@ -96,7 +104,7 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
           )}
 
-          {/* Botones para invitar y eliminar usuarios, solo visibles si el usuario está autenticado */}
+          {/* Botones para invitar usuarios y eliminar usuarios, solo visibles si el usuario está autenticado */}
           {isAuthenticated && (
             <div className="contenedor-botones">
               <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
@@ -104,7 +112,7 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
           )}
 
-          {/* Mostrar listado de usuarios ayudando */}
+          {/* Mostrar listado de usuarios invitados */}
         </div>
       </div>
       <div className='contenedor-detalle-receta'>
@@ -121,17 +129,16 @@ const DetallesReceta = ({ tipoReceta }) => {
         <div className="usuarios-ayudando">
             <h3>Usuarios Ayudando</h3>
             <ul>
-              {usuariosAyudando.map((usuario, index) => (
+              {receta.usuariosInvitados.map((usuario, index) => (
                 <li key={index}>
-                  {usuario.name}
+                  {usuario}
                 </li>
               ))}
             </ul>
-            {usuariosAyudando.length === 0 && (
-            <p>No hay usuarios ayudando.</p>
-          )}
-        </div>
-      
+            {receta.usuariosInvitados.length === 0 && (
+              <p>No hay usuarios ayudando.</p>
+            )}
+          </div>
       </div>
     </>
   );

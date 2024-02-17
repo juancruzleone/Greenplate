@@ -154,3 +154,13 @@ input{
     width: 700px;
 }
 
+.usuarios-ayudando li{
+    background-color: #121212;
+    color: white;
+    list-style-type: none;
+    font-family: "montserrat", sans-serif;
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+}
+
