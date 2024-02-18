@@ -5,10 +5,10 @@ import '../styles/perfil.css';
 const PerfilUsuario = () => {
   const { id } = useParams();
   const [usuario, setUsuario] = useState(null);
+  const [recetas, setRecetas] = useState([]);
 
   useEffect(() => {
-    console.log('Valor de id:', id);
-    const obtenerUsuario = async () => {
+    const obtenerPerfilYRecetas = async () => {
       try {
         const token = localStorage.getItem("authToken");
 
@@ -17,27 +17,58 @@ const PerfilUsuario = () => {
           return;
         }
 
-        console.log('Haciendo solicitud para obtener perfil con token:', token);
-
-        const response = await fetch(`http://localhost:3333/api/perfil/${id}`, {
+        // Obtener perfil del usuario
+        const perfilResponse = await fetch(`http://localhost:3333/api/perfil/${id}`, {
           headers: {
             'auth-token': token,
           },
         });
 
-        if (!response.ok) {
+        if (!perfilResponse.ok) {
           throw new Error('Error al obtener el perfil del usuario');
         }
 
-        const data = await response.json();
-        setUsuario(data);
+        const perfilData = await perfilResponse.json();
+        setUsuario(perfilData);
       } catch (error) {
         console.error('Error al obtener el perfil del usuario:', error.message);
       }
     };
 
-    obtenerUsuario();
+    obtenerPerfilYRecetas();
   }, [id]);
+
+  useEffect(() => {
+    const obtenerRecetasUsuario = async () => {
+      try {
+        const token = localStorage.getItem("authToken");
+
+        if (!token) {
+          console.error('Token no encontrado. Usuario no autenticado.');
+          return;
+        }
+
+        const recetasResponse = await fetch(`http://localhost:3333/api/perfil/${usuario.userName}/recetas`, {
+          headers: {
+            'auth-token': token,
+          },
+        });
+
+        if (!recetasResponse.ok) {
+          throw new Error('Error al obtener las recetas del usuario');
+        }
+
+        const recetasData = await recetasResponse.json();
+        setRecetas(recetasData);
+      } catch (error) {
+        console.error('Error al obtener las recetas del usuario:', error.message);
+      }
+    };
+
+    if (usuario) {
+      obtenerRecetasUsuario();
+    }
+  }, [usuario]);
 
   if (!usuario) {
     return <div>Cargando perfil del usuario...</div>;
@@ -49,16 +80,10 @@ const PerfilUsuario = () => {
       <p className="id-perfil">ID: {id}</p>
       <div className="detalle-perfil">
         <h2 className="titulo-recetas-creadas">Recetas en las que participa {usuario.userName}</h2>
-        {usuario.recetas && usuario.recetas.length > 0 ? (
+        {recetas.length > 0 ? (
           <table>
-            <thead>
-              <tr>
-                <th>Nombre de la Receta</th>
-              </tr>
-            </thead>
             <tbody>
-              {usuario.recetas.map((receta) => (
-                receta.usuariosInvitados.includes(usuario.userId) &&
+              {recetas.map((receta) => (
                 <tr key={receta._id}>
                   <td>{receta.name}</td>
                 </tr>
