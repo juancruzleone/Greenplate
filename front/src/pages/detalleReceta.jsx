@@ -10,7 +10,6 @@ const DetallesReceta = ({ tipoReceta }) => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    // Función para verificar si el usuario está autenticado
     const checkAuthentication = () => {
       const token = localStorage.getItem("authToken");
       setIsAuthenticated(!!token);
@@ -35,7 +34,6 @@ const DetallesReceta = ({ tipoReceta }) => {
 
   const invitarUsuario = async () => {
     try {
-      // Verificar si el usuario está vacío
       if (usuarioId.trim() === "") {
         setError("El nombre de usuario es requerido");
         setTimeout(() => {
@@ -44,7 +42,6 @@ const DetallesReceta = ({ tipoReceta }) => {
         return;
       }
 
-      // Verificar si el usuario ya está en la lista de invitados
       if (receta.usuariosInvitados.includes(usuarioId)) {
         setError("El usuario ya está en la lista de invitados");
         setTimeout(() => {
@@ -53,48 +50,36 @@ const DetallesReceta = ({ tipoReceta }) => {
         return;
       }
 
-      // Verificar si el usuario existe en la base de datos
-      const response = await fetch(`http://localhost:3333/api/usuarios/${usuarioId}`);
-      if (!response.ok) {
-        throw new Error("El usuario no existe");
-      }
-
-      // Lógica para invitar al usuario
-      const responseInvitar = await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, {
+      const response = await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
       });
 
-      if (!responseInvitar.ok) {
-        throw new Error("Hubo un problema al invitar al usuario");
+      if (!response.ok) {
+        throw new Error("El usuario no existe");
       }
 
-      // Actualizar la receta local con el nuevo usuario invitado
+      const data = await response.json();
+
       const updatedReceta = { ...receta };
       updatedReceta.usuariosInvitados.push(usuarioId);
       setReceta(updatedReceta);
 
-      // Limpiar el input después de invitar al usuario y establecer un temporizador para limpiar el error
       setUsuarioId("");
       setError("");
-      setTimeout(() => {
-        setError("");
-      }, 2000); // 2000 milisegundos = 2 segundos
     } catch (error) {
       console.error(`Error al invitar usuario:`, error);
       setError(error.message);
-      // Establecer un temporizador para limpiar el error después de 3 segundos
       setTimeout(() => {
         setError("");
-      }, 3000); // 3000 milisegundos = 3 segundos
+      }, 3000);
     }
   };
 
   const eliminarUsuario = async () => {
     try {
-      // Verificar si el usuario está vacío
       if (usuarioId.trim() === "") {
         setError("El nombre de usuario es requerido");
         setTimeout(() => {
@@ -103,7 +88,6 @@ const DetallesReceta = ({ tipoReceta }) => {
         return;
       }
 
-      // Verificar si el usuario no está en la lista de usuarios invitados
       if (!receta.usuariosInvitados.includes(usuarioId)) {
         setError("El usuario no está en la lista de invitados");
         setTimeout(() => {
@@ -112,27 +96,31 @@ const DetallesReceta = ({ tipoReceta }) => {
         return;
       }
 
-      // Lógica para enviar la solicitud de eliminación...
-      console.log("Solicitud de eliminación enviada para el usuario:", usuarioId);
+      const response = await fetch(`http://localhost:3333/api/recetas/${id}/eliminar/${usuarioId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
 
-      // Actualizar la receta local eliminando al usuario
+      if (!response.ok) {
+        throw new Error("Hubo un problema al eliminar al usuario");
+      }
+
+      const data = await response.json();
+
       const updatedReceta = { ...receta };
       updatedReceta.usuariosInvitados = updatedReceta.usuariosInvitados.filter(usuario => usuario !== usuarioId);
       setReceta(updatedReceta);
 
-      // Limpiar el input después de eliminar al usuario y establecer un temporizador para limpiar el error
       setUsuarioId("");
       setError("");
-      setTimeout(() => {
-        setError("");
-      }, 2000); // 2000 milisegundos = 2 segundos
     } catch (error) {
       console.error(`Error al eliminar usuario:`, error);
       setError(error.message);
-      // Establecer un temporizador para limpiar el error después de 3 segundos
       setTimeout(() => {
         setError("");
-      }, 3000); // 3000 milisegundos = 3 segundos
+      }, 3000);
     }
   };
 
@@ -154,7 +142,6 @@ const DetallesReceta = ({ tipoReceta }) => {
           <h2>{receta.name}</h2>
           <p className='categoria-detalle'>{receta.categoria}</p>
 
-          {/* Input para ingresar el nombre de usuario, solo visible si el usuario está autenticado */}
           {isAuthenticated && (
             <div>
               <label htmlFor="usuarioId" className="label-usuario">Nombre de Usuario:</label>
@@ -169,7 +156,6 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
           )}
 
-          {/* Botones para invitar usuarios y eliminar usuarios, solo visibles si el usuario está autenticado */}
           {isAuthenticated && (
             <div className="contenedor-botones">
               <button onClick={invitarUsuario} className="agregar">Agregar Usuario</button>
@@ -177,7 +163,6 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
           )}
 
-          {/* Mostrar mensaje de error si existe */}
           {error && <p className="error-message">{error}</p>}
         </div>
       </div>
