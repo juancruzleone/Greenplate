@@ -38,6 +38,18 @@ const DetallesReceta = ({ tipoReceta }) => {
       // Verificar si el usuario está vacío
       if (usuarioId.trim() === "") {
         setError("El nombre de usuario es requerido");
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+        return;
+      }
+
+      // Verificar si el usuario ya está en la lista de invitados
+      if (receta.usuariosInvitados.includes(usuarioId)) {
+        setError("El usuario ya está en la lista de invitados");
+        setTimeout(() => {
+          setError("");
+        }, 3000);
         return;
       }
 
@@ -64,17 +76,42 @@ const DetallesReceta = ({ tipoReceta }) => {
       updatedReceta.usuariosInvitados.push(usuarioId);
       setReceta(updatedReceta);
 
-      // Limpiar el input después de invitar al usuario
+      // Limpiar el input después de invitar al usuario y establecer un temporizador para limpiar el error
       setUsuarioId("");
       setError("");
+      setTimeout(() => {
+        setError("");
+      }, 2000); // 2000 milisegundos = 2 segundos
     } catch (error) {
       console.error(`Error al invitar usuario:`, error);
       setError(error.message);
+      // Establecer un temporizador para limpiar el error después de 3 segundos
+      setTimeout(() => {
+        setError("");
+      }, 3000); // 3000 milisegundos = 3 segundos
     }
   };
 
   const eliminarUsuario = async () => {
     try {
+      // Verificar si el usuario está vacío
+      if (usuarioId.trim() === "") {
+        setError("El nombre de usuario es requerido");
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+        return;
+      }
+
+      // Verificar si el usuario no está en la lista de usuarios invitados
+      if (!receta.usuariosInvitados.includes(usuarioId)) {
+        setError("El usuario no está en la lista de invitados");
+        setTimeout(() => {
+          setError("");
+        }, 3000);
+        return;
+      }
+
       // Lógica para enviar la solicitud de eliminación...
       console.log("Solicitud de eliminación enviada para el usuario:", usuarioId);
 
@@ -82,8 +119,20 @@ const DetallesReceta = ({ tipoReceta }) => {
       const updatedReceta = { ...receta };
       updatedReceta.usuariosInvitados = updatedReceta.usuariosInvitados.filter(usuario => usuario !== usuarioId);
       setReceta(updatedReceta);
+
+      // Limpiar el input después de eliminar al usuario y establecer un temporizador para limpiar el error
+      setUsuarioId("");
+      setError("");
+      setTimeout(() => {
+        setError("");
+      }, 2000); // 2000 milisegundos = 2 segundos
     } catch (error) {
       console.error(`Error al eliminar usuario:`, error);
+      setError(error.message);
+      // Establecer un temporizador para limpiar el error después de 3 segundos
+      setTimeout(() => {
+        setError("");
+      }, 3000); // 3000 milisegundos = 3 segundos
     }
   };
 
@@ -155,7 +204,10 @@ const DetallesReceta = ({ tipoReceta }) => {
             </ul>
           </div>
         ) : (
-          <p>No hay usuarios ayudando.</p>
+          <div className="usuarios-ayudando">
+            <h3>Usuarios Ayudando</h3>
+            <p>No hay usuarios ayudando</p>
+          </div>
         )}
       </div>
     </>
