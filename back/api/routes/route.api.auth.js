@@ -15,4 +15,8 @@ route.post("/perfil",[ validateToken, validatePerfil], controllers.crearPerfil)
 
 route.get("/perfil/:id", controllers.obtenerPerfil)
 
+route.get("/perfil/:userName/recetas", controllers.obtenerRecetasUsuario);
+
+
+
 export default route

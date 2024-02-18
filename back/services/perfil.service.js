@@ -1,36 +1,62 @@
+// services/perfil.service.js
+
 import { MongoClient, ObjectId } from "mongodb";
-import bcrypt from 'bcrypt'
 
-const client = new MongoClient("mongodb+srv://juan:Juanchocruz1234@recetas.uc27w62.mongodb.net/"); // mongodb://localhost:27017 -> 127.0.0.1 ipv6 ipv4
-
+const client = new MongoClient("mongodb+srv://juan:Juanchocruz1234@recetas.uc27w62.mongodb.net/");
 const db = client.db("AH20232CP1");
-const cuentaCollention = db.collection("perfiles")
+const cuentaCollection = db.collection("perfiles");
+const recetasCollection = db.collection("recetas");
 
-async function crearPerfil(cuenta, perfil){
+async function crearPerfil(cuenta, perfil) {
+  try {
     const perfilCompleto = {
-        ...perfil,
-        userName: cuenta.userName,
-        _id: new ObjectId(cuenta._id)
-    }
-    await client.connect()
-    const existe = await cuentaCollention.findOne( { userName: cuenta.userName } )
-    if(existe){
-        throw new Error("Ya existe un perfil")
+      ...perfil,
+      userName: cuenta.userName,
+      _id: new ObjectId(cuenta._id)
+    };
+    
+    await client.connect();
+    
+    const existe = await cuentaCollection.findOne({ userName: cuenta.userName });
+    if (existe) {
+      throw new Error("Ya existe un perfil");
     }
 
-    await cuentaCollention.insertOne(perfilCompleto)
+    await cuentaCollection.insertOne(perfilCompleto);
+  } catch (error) {
+    throw new Error("Error al crear el perfil: " + error.message);
+  }
 }
 
-async function obtenerPerfil(id){
-    await client.connect()
-    const perfil = await cuentaCollention.findOne( { _id: new ObjectId(id) } )
-    if(!perfil){
-        throw new Error("No existe el perfil")
+async function obtenerPerfil(id) {
+  try {
+    await client.connect();
+    
+    const perfil = await cuentaCollection.findOne({ _id: new ObjectId(id) });
+    if (!perfil) {
+      throw new Error("No existe el perfil");
     }
-    return perfil
+    
+    return perfil;
+  } catch (error) {
+    throw new Error("Error al obtener el perfil: " + error.message);
+  }
+}
+
+async function obtenerRecetasPorUsuario(userId) {
+  try {
+    await client.connect();
+    
+    const recetas = await recetasCollection.find({ usuariosInvitados: userId }).toArray();
+    
+    return recetas;
+  } catch (error) {
+    throw new Error('Error al obtener las recetas del usuario: ' + error.message);
+  }
 }
 
 export {
-    crearPerfil,
-    obtenerPerfil
-}
+  crearPerfil,
+  obtenerPerfil,
+  obtenerRecetasPorUsuario
+};

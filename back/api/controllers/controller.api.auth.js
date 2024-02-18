@@ -53,4 +53,17 @@ async function obtenerPerfil(req, res) {
       .catch(err => res.status(400).json({ error: { message: err.message } }));
 }
 
-export { crearCuenta, login, logout, crearPerfil, obtenerPerfil };
+
+async function obtenerRecetasUsuario(req, res) {
+  const userName = req.params.userName; // Cambia de req.params.id a req.params.userName
+
+  try {
+    const recetas = await perfilService.obtenerRecetasPorUsuario(userName);
+    res.status(200).json(recetas);
+  } catch (error) {
+    console.error('Error al obtener recetas del usuario:', error.message);
+    res.status(500).json({ error: 'Error interno del servidor' });
+  }
+}
+
+export { crearCuenta, login, logout, crearPerfil, obtenerPerfil, obtenerRecetasUsuario };
