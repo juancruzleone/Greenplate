@@ -151,6 +151,7 @@ const DetallesReceta = ({ tipoReceta }) => {
                   id="usuarioId"
                   value={usuarioId}
                   onChange={(e) => setUsuarioId(e.target.value)}
+                  placeholder="Escribe el nombre de usuario"
                 />
               </div>
             </div>
