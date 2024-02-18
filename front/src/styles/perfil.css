@@ -13,8 +13,41 @@
 .titulo-recetas-creadas{
     color: white;
     margin-bottom: 15px;
+    margin-top: 120px;
 }
 
 .participacion-vacia{
     color: white;
 }
+
+.recetas-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* Mínimo 200px de ancho, ajuste automático */
+    grid-gap: 20px; /* Espacio entre tarjetas */
+    margin-top: 80px;
+  }
+  
+  .receta-card {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: black;
+    font-family: "montserrat", sans-serif;
+    height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+    width: 300px;
+    height: 100px;
+  }
+
+  select{
+    width: 150px;
+    background-color: #121212;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+  }
+  
+  
+
+
+  

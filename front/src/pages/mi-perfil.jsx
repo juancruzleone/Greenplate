@@ -6,6 +6,8 @@ const PerfilUsuario = () => {
   const { id } = useParams();
   const [usuario, setUsuario] = useState(null);
   const [recetas, setRecetas] = useState([]);
+  const [categorias, setCategorias] = useState([]);
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("todos");
 
   useEffect(() => {
     const obtenerPerfilYRecetas = async () => {
@@ -48,7 +50,14 @@ const PerfilUsuario = () => {
           return;
         }
 
-        const recetasResponse = await fetch(`http://localhost:3333/api/perfil/${usuario.userName}/recetas`, {
+        let url = `http://localhost:3333/api/perfil/${usuario.userName}/recetas`;
+
+        // Si se selecciona una categoría, agregar el parámetro de categoría a la URL
+        if (categoriaSeleccionada !== "todos") {
+          url += `?categoria=${categoriaSeleccionada}`;
+        }
+
+        const recetasResponse = await fetch(url, {
           headers: {
             'auth-token': token,
           },
@@ -68,10 +77,25 @@ const PerfilUsuario = () => {
     if (usuario) {
       obtenerRecetasUsuario();
     }
-  }, [usuario]);
+  }, [usuario, categoriaSeleccionada]); // Actualizar cuando cambia la categoría seleccionada
+
+  useEffect(() => {
+    // Extraer categorías únicas de las recetas
+    const categoriasUnicas = [...new Set(recetas.map(receta => receta.categoria))];
+    setCategorias(categoriasUnicas);
+  }, [recetas]); // Actualizar cuando cambian las recetas
+
+  const handleCategoriaChange = (event) => {
+    setCategoriaSeleccionada(event.target.value);
+  };
 
   if (!usuario) {
     return <div>Cargando perfil del usuario...</div>;
+  }
+
+  let recetasFiltradas = recetas;
+  if (categoriaSeleccionada !== "todos") {
+    recetasFiltradas = recetas.filter(receta => receta.categoria === categoriaSeleccionada);
   }
 
   return (
@@ -80,19 +104,24 @@ const PerfilUsuario = () => {
       <p className="id-perfil">ID: {id}</p>
       <div className="detalle-perfil">
         <h2 className="titulo-recetas-creadas">Recetas en las que participa {usuario.userName}</h2>
-        {recetas.length > 0 ? (
-          <table>
-            <tbody>
-              {recetas.map((receta) => (
-                <tr key={receta._id}>
-                  <td>{receta.name}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p className="participacion-vacia">No participa en ninguna receta</p>
-        )}
+        <select value={categoriaSeleccionada} onChange={handleCategoriaChange}>
+          <option value="todos">Todos</option>
+          {categorias.map((categoria, index) => (
+            <option key={index} value={categoria}>{categoria}</option>
+          ))}
+        </select>
+        <div className="recetas-container">
+          {recetasFiltradas.length > 0 ? (
+            recetasFiltradas.map((receta) => (
+              <div key={receta._id} className="receta-card">
+                <h3>{receta.name}</h3>
+                {/* Aquí puedes agregar más detalles de la receta si lo deseas */}
+              </div>
+            ))
+          ) : (
+            <p className="participacion-vacia">No hay recetas en esta categoría</p>
+          )}
+        </div>
       </div>
     </div>
   );
