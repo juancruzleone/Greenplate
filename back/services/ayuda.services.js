@@ -10,13 +10,6 @@ const db = client.db("AH20232CP1");
 // Servicio para invitar usuario a una receta por nombre de usuario
 export async function invitarUsuarioPorNombre(recetaId, nombreUsuario) {
     try {
-        // Verificar si el usuario existe en la base de datos
-        const usuarioExistente = await db.collection('usuarios').findOne({ nombre: nombreUsuario });
-        if (!usuarioExistente) {
-            throw new Error("El usuario no existe en la base de datos");
-        }
-
-        // Agregar usuario solo si existe
         const result = await db.collection('recetas').updateOne(
             { _id: new ObjectId(recetaId) },
             { $addToSet: { usuariosInvitados: nombreUsuario } }
@@ -67,3 +60,5 @@ export async function obtenerUsuariosAyudando(recetaId) {
         throw error;
     }
 }
+
+

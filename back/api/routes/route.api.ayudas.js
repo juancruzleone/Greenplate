@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import * as controllers from '../controllers/controller.api.ayudas.js';
-import validarUsuarioMiddleware from '../../middleware/ayuda.validate.middleware.js'
+
 
 const route = Router();
 
-// Middleware para validar usuario en rutas que requieren ID y nombre de usuario
-route.use('/recetas/:id/:nombreUsuario', validarUsuarioMiddleware);
+
 
 // Invitar usuario a una receta específica por ID
 route.post('/recetas/:id/invitar/:nombreUsuario', controllers.invitarUsuario);
