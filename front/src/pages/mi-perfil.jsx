@@ -49,8 +49,8 @@ const PerfilUsuario = () => {
       <h1>Perfil de {usuario.userName}</h1>
       <p className="id-perfil">ID: {id}</p>
       <div className="detalle-perfil">
-             {/* Mostrar la tabla de recetas */}
-        <h2 className="titulo-recetas-creadas">Recetas Creadas por {usuario.userName}</h2>
+        {/* Mostrar la tabla de recetas */}
+        <h2 className="titulo-recetas-creadas">Recetas en las que participa {usuario.userName}</h2>
         {usuario.recetas && usuario.recetas.length > 0 ? (
           <table>
             <thead>
@@ -61,6 +61,7 @@ const PerfilUsuario = () => {
             </thead>
             <tbody>
               {usuario.recetas.map((receta) => (
+                usuarioInvitadoEnReceta(receta, usuario) &&
                 <tr key={receta.id}>
                   <td>{receta.nombre}</td>
                   {/* Agrega más celdas según la información disponible en tu backend */}
@@ -69,11 +70,16 @@ const PerfilUsuario = () => {
             </tbody>
           </table>
         ) : (
-          <p className="participacion-vacia">No participa en ningun receta</p>
+          <p className="participacion-vacia">No participa en ninguna receta</p>
         )}
-        </div>
+      </div>
     </div>
   );
+};
+
+// Función para verificar si el usuario está invitado en una receta
+const usuarioInvitadoEnReceta = (receta, usuario) => {
+  return receta.usuariosInvitados.includes(usuario.id);
 };
 
 export default PerfilUsuario;

@@ -4,9 +4,10 @@ import '../styles/detalle-receta.css';
 
 const DetallesReceta = ({ tipoReceta }) => {
   const { id } = useParams();
-  const [receta, setReceta] = useState({});
+  const [receta, setReceta] = useState(null);
   const [usuarioId, setUsuarioId] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     // Función para verificar si el usuario está autenticado
@@ -34,15 +35,29 @@ const DetallesReceta = ({ tipoReceta }) => {
 
   const invitarUsuario = async () => {
     try {
-      // Aquí realizaríamos una verificación adicional antes de enviar la solicitud
-      // Para simplificar, se puede realizar una verificación en el frontend
+      // Verificar si el usuario está vacío
       if (usuarioId.trim() === "") {
-        console.error("Nombre de usuario vacío");
+        setError("El nombre de usuario es requerido");
         return;
       }
-      
-      // Lógica para enviar la solicitud de invitación...
-      console.log("Invitación enviada al usuario:", usuarioId);
+
+      // Verificar si el usuario existe en la base de datos
+      const response = await fetch(`http://localhost:3333/api/usuarios/${usuarioId}`);
+      if (!response.ok) {
+        throw new Error("El usuario no existe");
+      }
+
+      // Lógica para invitar al usuario
+      const responseInvitar = await fetch(`http://localhost:3333/api/recetas/${id}/invitar/${usuarioId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!responseInvitar.ok) {
+        throw new Error("Hubo un problema al invitar al usuario");
+      }
 
       // Actualizar la receta local con el nuevo usuario invitado
       const updatedReceta = { ...receta };
@@ -51,8 +66,10 @@ const DetallesReceta = ({ tipoReceta }) => {
 
       // Limpiar el input después de invitar al usuario
       setUsuarioId("");
+      setError("");
     } catch (error) {
       console.error(`Error al invitar usuario:`, error);
+      setError(error.message);
     }
   };
 
@@ -70,7 +87,7 @@ const DetallesReceta = ({ tipoReceta }) => {
     }
   };
 
-  if (!receta.name) {
+  if (!receta) {
     return <div>Cargando detalles de la receta...</div>;
   }
 
@@ -111,7 +128,8 @@ const DetallesReceta = ({ tipoReceta }) => {
             </div>
           )}
 
-          {/* Mostrar listado de usuarios invitados */}
+          {/* Mostrar mensaje de error si existe */}
+          {error && <p className="error-message">{error}</p>}
         </div>
       </div>
       <div className='contenedor-detalle-receta'>
@@ -125,19 +143,20 @@ const DetallesReceta = ({ tipoReceta }) => {
             ))}
           </ul>  
         </div>
-        <div className="usuarios-ayudando">
+        {receta.usuariosInvitados && receta.usuariosInvitados.length > 0 ? (
+          <div className="usuarios-ayudando">
             <h3>Usuarios Ayudando</h3>
             <ul>
-              {receta.usuariosInvitados && receta.usuariosInvitados.map((usuario, index) => (
+              {receta.usuariosInvitados.map((usuario, index) => (
                 <li key={index}>
                   {usuario}
                 </li>
               ))}
             </ul>
-            {receta.usuariosInvitados.length === 0 && (
-              <p>No hay usuarios invitados.</p>
-            )}
           </div>
+        ) : (
+          <p>No hay usuarios ayudando.</p>
+        )}
       </div>
     </>
   );
