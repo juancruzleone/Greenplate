@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: linear-gradient(to right, green, yellow);
+    background-color: #004B3E;
 }
 
   
@@ -18,17 +18,17 @@ body{
 .contenedor-error{
     font-family: "montserrat", sans-serif;
     text-align: center;
-    background-color: green;
-    width: 600px;
-    padding: 40px;
-    border-radius: 10px;
-    margin: auto;
-    margin-top: 320px;
-    height: 300px;
+    padding-top: 120px;
 }
 
 .contenedor-error p{
     margin-top: 20px;
     font-size: 22px;
     color: white;
+}
+
+.contenedor-error h1{
+  font-size: 200px;
+  margin: 0px;
+  padding: 0px;
 }

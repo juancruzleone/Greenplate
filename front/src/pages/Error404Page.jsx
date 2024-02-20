@@ -1,13 +1,16 @@
+import Nav from '../components/nav'
+import Footer from '../components/Footer'
 import '../styles/error404.css'
 
 const error404Page = () => {
     return (
         <>
+        <Nav />
         <div className='contenedor-error'>
-            <h1>No se encontro la página</h1>
-            <p>Error 404</p>
+            <h1>404</h1>
+            <p>Página no encontrada</p>
         </div>
-           
+        <Footer />
         </>
     )
 }
