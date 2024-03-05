@@ -5,6 +5,7 @@ import '../styles/editar-receta.css';
 const EditarReceta = () => {
   const { id } = useParams();
   const [receta, setReceta] = useState(null);
+  const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
     const obtenerReceta = async () => {
@@ -22,6 +23,24 @@ const EditarReceta = () => {
 
     obtenerReceta();
   }, [id]);
+
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const response = await fetch('http://localhost:3333/api/recetas');
+        if (!response.ok) {
+          throw new Error('Error al obtener las recetas');
+        }
+        const data = await response.json();
+        const categoriasUnicas = [...new Set(data.map(receta => receta.categoria))];
+        setCategorias(categoriasUnicas);
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+
+    fetchCategorias();
+  }, []);
 
   const handleInputChange = (e) => {
     setReceta({
@@ -75,7 +94,12 @@ const EditarReceta = () => {
         <label>
           Categoría:
         </label>
-        <input type="text" name="categoria" value={receta.categoria} onChange={handleInputChange} />
+        <select name="categoria" value={receta.categoria} onChange={handleInputChange}>
+          <option value="">Selecciona una categoría</option>
+          {categorias.map((categoria, index) => (
+            <option key={index} value={categoria}>{categoria}</option>
+          ))}
+        </select>
         <label>
           Imagen:
         </label>
