@@ -94,7 +94,7 @@ const EditarReceta = () => {
         <label>
           Categoría:
         </label>
-        <select name="categoria" value={receta.categoria} onChange={handleInputChange}>
+        <select name="categoria" value={receta.categoria} onChange={handleInputChange} className='select-receta'>
           <option value="">Selecciona una categoría</option>
           {categorias.map((categoria, index) => (
             <option key={index} value={categoria}>{categoria}</option>
@@ -104,10 +104,6 @@ const EditarReceta = () => {
           Imagen:
         </label>
         <input type="text" name="img" value={receta.img} onChange={handleInputChange} />
-        <label>
-          Enlace:
-        </label>
-        <input type="text" name="link" value={receta.link} onChange={handleInputChange} />
         <button type="button" onClick={handleGuardarCambios}>
           Guardar Cambios
         </button>
