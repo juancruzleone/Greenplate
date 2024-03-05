@@ -43,7 +43,7 @@ const DetallesReceta = ({ tipoReceta }) => {
       }
 
       if (receta.usuariosInvitados.includes(usuarioId)) {
-        setError("El usuario ya está en la lista de invitados");
+        setError("El usuario ya está en la lista de usuarios ayudando");
         setTimeout(() => {
           setError("");
         }, 3000);

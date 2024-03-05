@@ -1,5 +1,4 @@
-// CrearReceta.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/crear-receta.css';
 
 const CrearReceta = () => {
@@ -11,6 +10,26 @@ const CrearReceta = () => {
     link: '',
     categoria: '', // Cambiar a 'categoria'
   });
+
+  const [categorias, setCategorias] = useState([]);
+
+  useEffect(() => {
+    const fetchCategorias = async () => {
+      try {
+        const response = await fetch('http://localhost:3333/api/recetas');
+        if (!response.ok) {
+          throw new Error('Error al obtener las recetas');
+        }
+        const data = await response.json();
+        const categoriasUnicas = [...new Set(data.map(receta => receta.categoria))];
+        setCategorias(categoriasUnicas);
+      } catch (error) {
+        console.error('Error:', error.message);
+      }
+    };
+
+    fetchCategorias();
+  }, []);
 
   const handleInputChange = (e) => {
     const value = e.target.name === 'categoria' ? e.target.value : e.target.value;
@@ -35,7 +54,7 @@ const CrearReceta = () => {
         throw new Error(`Error al crear la receta: ${errorMessage}`);
       }
 
-      const nuevaReceta = await response.json(); // Obtén la receta con el _id asignado
+      const nuevaReceta = await response.json();
 
       console.log('Receta creada correctamente:', nuevaReceta);
 
@@ -67,7 +86,12 @@ const CrearReceta = () => {
         <label>
           Categoría:
         </label>
-        <input type="text" name="categoria" value={receta.categoria} onChange={handleInputChange} placeholder='Escribe la categoria de la receta'/>
+        <select name="categoria" value={receta.categoria} onChange={handleInputChange}>
+          <option value="">Selecciona una categoría</option>
+          {categorias.map((categoria, index) => (
+            <option key={index} value={categoria}>{categoria}</option>
+          ))}
+        </select>
         <label>
           Imagen:
         </label>
