@@ -15,7 +15,8 @@
 .contenedor-recetas-listado p{
     color: white;
     font-family: "montserrat", sans-serif;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .contenedor-recetas-listado img{
@@ -30,10 +31,14 @@
     border-radius: 4px;
     text-decoration: none;
     color: white;
-    margin-left: 200px;
     height: 50px;
     text-align: center;
     font-family: "montserrat", sans-serif;
+    padding: 5px;
+}
+
+.contenedor-recetas-listado a:hover{
+    background-color: darkgreen;
 }
 
 .tarjeta-receta-listado{
@@ -44,6 +49,7 @@
     background-color: #1d1d1d;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
 }
 
 .contenedor-buscador{

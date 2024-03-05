@@ -47,10 +47,14 @@ const NoLactosa = () => {
       <div className='contenedor-recetas-listado'>
         {recetasFiltradas.map((receta, index) => (
           <div key={index} className='tarjeta-receta-listado'>
-            <img src={receta.img} alt={receta.img} />
-            <h3>{receta.name}</h3>
-            <Link to={`/recetas/${receta._id}`}>Ver más</Link>
-            {/* Agrega más detalles de la receta según tus necesidades */}
+            <div>
+              <img src={receta.img} alt={receta.img} />
+            </div>
+            <div>
+              <h3>{receta.name}</h3>
+              <p>{receta.description}</p>
+              <Link to={`/recetas/${receta._id}`}>Ver más</Link>
+            </div>
           </div>
         ))}
       </div>
