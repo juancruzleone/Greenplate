@@ -22,3 +22,13 @@ input[type='password']{
     padding: 10px;
     font-size: 16px;
 }
+
+#boton-login{
+    margin-top: 20px;
+}
+
+#boton-registro{
+    margin-top: 20px;
+}
+
+
