@@ -18,7 +18,6 @@ const PanelAdmin = () => {
         return <ListaRecetas />;
       case "contactos":
         return <ListaContactos />;
-      // Agrega más casos para otras solapas si es necesario
       default:
         return null;
     }

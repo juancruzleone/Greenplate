@@ -71,11 +71,28 @@ span{
 
 .contenedor-nuestra-historia {
     display: flex;
-    align-items: center; /* Centra verticalmente los elementos */
+    align-items: center; 
     padding-left: 60px;
     padding-top: 100px;
   }
-  
+
+
+
+  @media only screen and (max-width: 767px){
+    .contenedor-nuestra-historia{
+        display: block;
+    }
+
+    .contenedor-nuestra-historia img{
+        margin-right: 0px;
+        width: 80%;
+        height: 60%;
+    }
+
+    .contenedor-nuestra-historia p{
+        width: 300px;
+    }
+  }
 
 
 

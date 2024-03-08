@@ -20,13 +20,13 @@
 }
 
 .auth-buttons {
-  margin-left: auto; /* Esto empujará los botones hacia la derecha */
+  margin-left: auto; 
 }
 
 
 .auth-button {
   display: inline-block;
-  margin-left: 10px; /* Esto proporciona un espacio entre los botones */
+  margin-left: 10px; 
 }
 
 
@@ -38,7 +38,7 @@
 }
 
 .navPage ul li .secciones:hover {
-  border-bottom: 5px solid greenyellow; /* Efecto hover aplicado a todos los enlaces */
+  border-bottom: 5px solid greenyellow; 
 }
 
 
@@ -46,7 +46,7 @@
 footer{
   background-color: #121212;
   padding: 40px;
-  height: 200px;
+  height: 100%;
   margin-top: 180px;
 }
 
@@ -218,24 +218,24 @@ footer ul {
 
 .navPage ul {
   display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
+  align-items: center; 
   list-style-type: none;
-  height: 100%; /* Ocupa toda la altura del nav */
+  height: 100%; 
 }
 
 .navPage ul li {
-  margin: 0 20px; /* Ajusta el margen */
+  margin: 0 20px; 
 }
 
 .auth-buttons {
-  margin-left: auto; /* Esto empujará los botones hacia la derecha */
-  display: flex; /* Alinea los botones de inicio de sesión y perfil verticalmente */
-  align-items: center; /* Alinea verticalmente los botones de inicio de sesión y perfil */
+  margin-left: auto; 
+  display: flex;
+  align-items: center; 
 }
 
 .auth-button {
   display: inline-block;
-  margin-left: 10px; /* Esto proporciona un espacio entre los botones */
+  margin-left: 10px; 
 }
 
 .navPage ul li a {
@@ -252,3 +252,26 @@ footer ul {
 
 
 
+/*@media only screen and (max-width: 767px){
+  footer{
+    height: 100%;
+  }
+
+  footer ul li{
+    margin-left: 0px;
+  }
+
+  .footer-container{
+    display: block;
+    justify-content: center;
+    margin: auto;
+
+  }
+
+  .footer-links ul li{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
+*/

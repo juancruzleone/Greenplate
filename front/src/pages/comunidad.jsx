@@ -33,7 +33,6 @@ const Usuarios = () => {
             <h3>{usuario.userName}</h3>
             <p>ID: {usuario._id}</p>
             <Link to={`/mi-perfil/${usuario._id}`}>Ver perfil</Link>
-            {/* Agrega más detalles del usuario según tus necesidades */}
           </div>
         ))}
       </div>

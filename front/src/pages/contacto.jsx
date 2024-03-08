@@ -116,7 +116,7 @@ const Contacto = () => {
           <button type='submit'>Enviar mensaje</button>
         </form>
 
-        {/* Modal de éxito */}
+  
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
@@ -129,7 +129,7 @@ const Contacto = () => {
           </div>
         </Modal>
 
-        {/* Modal de errores */}
+      
         <Modal
           isOpen={errorModalIsOpen}
           onRequestClose={closeErrorModal}

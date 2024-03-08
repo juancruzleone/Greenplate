@@ -1,4 +1,3 @@
-// Layout.jsx
 import { SessionProvider } from "../context/sessionContext.jsx"
 import Nav from './nav'
 

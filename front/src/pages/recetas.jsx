@@ -44,7 +44,6 @@ const ListadoRecetas = () => {
               <h3>{receta.name}</h3>
               <p className="tarjeta-categoria">{receta.categoria}</p>
               <Link to={`/recetas/${receta._id}`} className='boton-ver-mas'>Ver más</Link>
-              {/* Agrega más detalles de la receta según tus necesidades */}
             </div>
           ))}
         </div>

@@ -40,11 +40,11 @@
 
 .contenedor-recetas {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Tres tarjetas por fila */
-  gap: 40px; /* Espacio entre las tarjetas */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 40px; 
   row-gap: 40px;
   padding-top: 0px;
-  align-items: flex-start; /* Alinea los elementos en la parte superior del contenedor */
+  align-items: flex-start; 
   margin: auto;
 }
 
@@ -57,17 +57,17 @@
   flex-direction: column;
   color: white;
   font-family: "montserrat", sans-serif;
-  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
-  align-items: flex-start; /* Alinea los elementos en la parte superior de la tarjeta */
+  height: 100%; 
+  align-items: flex-start; 
   width: 320px;
   height: 340px;
 }
 
 .tarjeta-receta h3 {
   font-size: 1.5rem;
-  line-height: 1.2; /* Altura de línea */
-  height: 3.6rem; /* Altura máxima para dos líneas de texto */
-  overflow: hidden; /* Oculta el texto que sobresale */
+  line-height: 1.2; 
+  height: 3.6rem; 
+  overflow: hidden; 
 }
 
 .tarjeta-receta p {
@@ -83,7 +83,7 @@
 
 .tarjeta-receta .boton-ver-mas {
   margin-top: auto;
-  align-self: center; /* Alinea el botón al centro vertical de la tarjeta */
+  align-self: center; 
   background-color: rgb(36, 58, 3);
   padding: 10px;
   color: white;
@@ -92,7 +92,7 @@
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s;
-  width: 300px; /* Ancho del botón */
+  width: 300px; 
   text-align: center;
 }
 

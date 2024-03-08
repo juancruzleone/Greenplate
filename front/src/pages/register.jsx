@@ -83,7 +83,7 @@ const Register = () => {
         </form>
       </div>
 
-      {/* Modal de éxito */}
+
       <Modal
         isOpen={isModalOpen}
         onRequestClose={closeModal}

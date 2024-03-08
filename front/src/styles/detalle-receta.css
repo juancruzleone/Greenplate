@@ -166,11 +166,11 @@ input{
 }
 
 
-/* Agrega estilos para el mensaje de error */
+
 .error-message {
-    color: red; /* Cambia el color del texto a rojo */
-    font-size: 16px; /* Cambia el tamaño de fuente */
-    margin-top: 5px; /* Agrega un margen superior para separar el mensaje de otros elementos */
+    color: red; 
+    font-size: 16px; 
+    margin-top: 5px; 
   }
 
 

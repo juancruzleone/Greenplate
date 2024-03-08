@@ -7,7 +7,6 @@ const EliminarReceta = () => {
   const navigate = useNavigate();
   const [receta, setReceta] = useState({
     name: '',
-    // Agrega más propiedades según tu modelo de datos
   });
 
   useEffect(() => {
@@ -31,7 +30,7 @@ const EliminarReceta = () => {
       });
 
       if (response.ok) {
-        navigate('/panel'); // Redirige a la página de listado después de eliminar
+        navigate('/panel'); 
       } else {
         console.error('Error al eliminar la receta');
       }
@@ -44,7 +43,6 @@ const EliminarReceta = () => {
     <div>
       <h1>Eliminar Receta</h1>
       <p className='texto-eliminar-receta'>¿Estás seguro de que deseas eliminar la receta "{receta.name}"?</p>
-      {/* Muestra más detalles de la receta según tus necesidades */}
       <div className='contenedor-boton-eliminar'>
         <button type="button" onClick={handleEliminarReceta} className="boton-eliminar-receta">
           Confirmar Eliminación

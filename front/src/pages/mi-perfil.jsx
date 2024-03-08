@@ -115,7 +115,6 @@ const PerfilUsuario = () => {
             recetasFiltradas.map((receta) => (
               <div key={receta._id} className="receta-card">
                 <h3>{receta.name}</h3>
-                {/* Aquí puedes agregar más detalles de la receta si lo deseas */}
               </div>
             ))
           ) : (

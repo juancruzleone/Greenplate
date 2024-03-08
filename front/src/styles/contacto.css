@@ -42,21 +42,20 @@ form textarea{
 input::placeholder,
 textarea::placeholder {
   margin-left: 100px;
-  color: #999; /* Color del texto del placeholder */
-  font-style: italic; /* Estilo del texto del placeholder */
-  /* Otros estilos según tus preferencias */
+  color: #999; 
+  font-style: italic; 
 }
 
 
 input[type='text'],
 input[type='email'],
 textarea {
-  border: 1px solid #ccc; /* Bordes normales */
-  padding: 10px; /* Espacio alrededor del texto */
-  font-size: 16px; /* Tamaño de fuente */
+  border: 1px solid #ccc; 
+  padding: 10px; 
+  font-size: 16px; 
   font-family: "montserrat", sans-serif;
   color: white;
-  /* Otros estilos según tus preferencias */
+
 }
 
 form button{
@@ -94,7 +93,7 @@ form button:hover{
   }
   
   .posicion-boton-modal {
-    margin-top: 10px; /* Ajusta la distancia desde el texto según sea necesario */
+    margin-top: 10px; 
     cursor: pointer;
   }
   
