@@ -6,7 +6,7 @@ const Footer = () => {
     <footer>
       <div className="footer-container">
         <div className="footer-logo">
-          <img src="logo-greenpalate-blanco.webp" alt="Logo greenpalate" className='img-footer'/>
+          <img src="logo-greenpalate-blancos.svg" alt="Logo greenpalate" className='img-footer'/>
         </div>
         <div className="footer-links">
           <ul>

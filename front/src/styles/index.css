@@ -54,6 +54,7 @@ footer{
   display: block;
   justify-content: center;
   margin: auto;
+  width: 120px;
 }
 
 footer h3{
