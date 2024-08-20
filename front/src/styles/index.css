@@ -33,7 +33,7 @@
 .navPage ul li .secciones{
   color: white;
   font-family: "montserrat", sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   text-decoration: none;
 }
 
@@ -225,7 +225,11 @@ footer ul {
 }
 
 .navPage ul li {
-  margin: 0 20px; 
+  margin: 0 15px;
+}
+
+#primer-seccion-nav{
+  margin-left: 20px;
 }
 
 .auth-buttons {

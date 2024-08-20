@@ -148,6 +148,15 @@ h1{
     padding-left: 190px;
   }
 
+.contenedor-preguntas-frecuentes h3{
+    color: white;
+    font-family: "montserrat", sans-serif;
+    margin-bottom: 80px;
+    margin-top: 80px;
+    font-weight: 300;
+    font-size: 22px;
+}
+
 .contenedor-preguntas-frecuentes h2{
     color: white;
     font-family: "montserrat", sans-serif;
@@ -159,7 +168,7 @@ h1{
 
 .contenedor-unite {
     background-color: #121212;
-    width: 1300px;
+    width: 80%;
     border-radius: 20px;
     display: flex;
     margin: auto; 
@@ -272,3 +281,5 @@ h1{
     }
 }
 */
+
+

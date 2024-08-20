@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import PreguntasFrecuentes from "../components/PreguntaasFrecuentes"
+import PreguntasFrecuentes from "../components/PreguntasFrecuentes"
 import '../styles/home.css';
 
 const Index = () => {

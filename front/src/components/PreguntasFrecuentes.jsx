@@ -81,7 +81,7 @@ const PreguntasFrecuentes = () => {
             >
               {preguntaAbierta === index ? "-" : "+"}
             </button>
-            <h2 className="titulosPreguntas">{item.pregunta}</h2>
+            <h3 className="titulosPreguntas">{item.pregunta}</h3>
             <div
               className={`respuesta ${
                 preguntaAbierta === index ? "respuestaVisible" : ""

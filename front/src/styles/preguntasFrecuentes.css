@@ -14,7 +14,7 @@
     background-color: #f57600;
   }
   
-  .contenedorPreguntasFrecuentes h2{
+  .contenedorPreguntasFrecuentes h3{
     font-family: "montserrat", sans-serif;
   }
   
@@ -32,7 +32,7 @@
   }
 
   .contenedorPreguntaRespuesta {
-    width: 1270px;
+    width: 88%;
     height: 60px;
     background-color: #121212;
     margin-top: -50px;
@@ -76,6 +76,11 @@
   .respuestaVisible {
     display: block;
   }
+
+  .titulosPreguntas{
+    margin: 10px;
+    padding-top: 15px;
+  }
   
   #titulosPreguntas{
     font-family: "montserrat", sans-serif;
@@ -87,4 +92,4 @@
     font-size: 16px;
     color: black;
   }
-  
+

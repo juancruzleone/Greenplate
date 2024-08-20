@@ -18,11 +18,11 @@ const Nav = () => {
       <ul>
         <li>
           <Link to="/">
-            <img src="logo-greenpalate-blancos.svg" alt="Logo greenpalate" className='logo-nav'/>
+            <img src="/logo-greenpalate-blancos.svg" alt="Logo greenplate" className='logo-nav'/>
           </Link>  
         </li>
         <li>
-          <Link to="/" className='secciones'>Home</Link>
+          <Link to="/" className='secciones' id='primer-seccion-nav'>Home</Link>
         </li>
         <li>
           <Link to="/quienes-somos" className='secciones'>Quiénes somos</Link>
@@ -48,7 +48,7 @@ const Nav = () => {
           {!authToken && (
             <li className='contenedor-auth'>
               <Link to="/login">
-                <img src="usuario.webp" alt="Iniciar sesión" />
+                <img src="/usuario.webp" alt="Iniciar sesión" />
               </Link>
             </li>
           )}
@@ -56,12 +56,12 @@ const Nav = () => {
           {authToken && (
             <li className='contenedor-auth-logeado'>
               <Link to={`/mi-perfil/${perfilId}`}>
-                <img src="usuario.webp" alt="Perfil de usuario" />
+                <img src="/usuario.webp" alt="Perfil de usuario" />
               </Link>
             </li>
           )}
           {authToken && <button onClick={handleLogout} className='contenedor-auth-logeado'>
-            <img src="cerrar-sesion.webp" alt="Icono cerrar sesion"/>
+            <img src="/cerrar-sesion.webp" alt="Icono cerrar sesion"/>
             </button>}
           </div>
         </div>

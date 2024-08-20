@@ -17,6 +17,10 @@
     color: white;
 }
 
+.contenedor-login .error{
+    color: rgb(248, 42, 42);
+}
+
 input[type='password']{
     color: white;
     padding: 10px;
@@ -29,6 +33,13 @@ input[type='password']{
 
 #boton-registro{
     margin-top: 20px;
+}
+
+.registroLogin{
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 5px;
 }
 
 

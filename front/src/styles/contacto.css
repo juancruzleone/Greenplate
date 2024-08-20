@@ -4,7 +4,7 @@ h1{
 
 .contenedor-contacto{
     display: flex;
-    justify-content: center;
+    padding-left: 60px;
     margin-top: 200px;
 }
 
